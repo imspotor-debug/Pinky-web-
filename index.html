@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Vitico | Mis enlaces</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 15px;
+            background: linear-gradient(135deg, #12001f, #43005c, #050008);
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 430px;
+            text-align: center;
+            animation: aparecer 0.8s ease;
+        }
+
+        .logo {
+            width: 105px;
+            height: 105px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(135deg, #ff00cc, #8a2be2);
+            box-shadow: 0 0 35px rgba(255, 0, 204, 0.7);
+
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .descripcion {
+            color: #ddd;
+            font-size: 15px;
+            margin-bottom: 28px;
+        }
+
+        .boton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            min-height: 62px;
+            margin: 15px 0;
+
+            border-radius: 16px;
+            text-decoration: none;
+            color: white;
+
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+
+            backdrop-filter: blur(10px);
+
+            font-size: 17px;
+            font-weight: bold;
+
+            transition: 0.3s ease;
+        }
+
+        .boton:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 0 25px rgba(255, 0, 204, 0.5);
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .icono {
+            font-size: 26px;
+            margin-right: 12px;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">V</div>
+
+        <h1>Vitico</h1>
+
+        <div class="descripcion">
+            🔥 Únete a mis comunidades 🔥
+        </div>
+
+        <!-- CANAL DE WHATSAPP -->
+        <a class="boton"
+           href="https://whatsapp.com/channel/0029Vb7e1V2CMY0N0wdR9X1c"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <span class="icono">📢</span>
+            Canal de WhatsApp
+
+        </a>
+
+        <!-- GRUPO DE WHATSAPP -->
+        <a class="boton"
+           href="https://chat.whatsapp.com/LbS2LbqrJY0Gn8FKU9tfrw"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <span class="icono">👥</span>
+            Grupo de WhatsApp
+
+        </a>
+
+        <!-- TELEGRAM -->
+        <a class="boton"
+           href="https://t.me/linkjkrgds13exe"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            <span class="icono">✈️</span>
+            Telegram
+
+        </a>
+
+        <footer>
+            © 2026 Vitico
+        </footer>
+
+    </div>
+
+</body>
+</html>
