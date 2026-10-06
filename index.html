@@ -5,134 +5,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PINKY MODZ - Enlaces Oficiales</title>
     <!-- Iconos de FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            background-color: #1a1a1a;
+            background-color: #121212;
             color: #ffffff;
-            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px 0;
+            padding: 25px 15px;
         }
+
         .container {
-            background-color: #2a2a2a;
+            width: 100%;
+            max-width: 380px;
+            background: #1e1e1e;
+            padding: 25px 20px;
+            border-radius: 20px;
             border: 2px solid #ff0000;
-            border-radius: 15px;
-            padding: 20px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
             text-align: center;
-            width: 320px;
-            box-shadow: 0 0 10px #ff0000;
         }
+
         .logo-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
+
         .logo {
+            width: 95px;
+            height: 95px;
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            display: block;
             object-fit: cover;
+            display: block;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 12px #ff0000;
         }
-        .logo-neon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #ff0000;
-            pointer-events: none;
-        }
+
         h1 {
             color: #ff0000;
-            font-size: 24px;
-            margin: 0 0 10px;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
         }
-        p {
-            font-size: 14px;
-            margin: 0 0 20px;
-            color: #ccc;
+
+        p.description {
+            font-size: 13px;
+            color: #bbbbbb;
+            margin-bottom: 20px;
         }
+
+        .btn-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
         .link-button {
-            background-color: transparent;
-            border-radius: 25px;
-            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 15px;
-            padding: 10px 15px;
+            padding: 12px 16px;
+            border-radius: 25px;
+            color: #ffffff;
             text-decoration: none;
-            transition: background-color 0.3s, box-shadow 0.3s;
             font-weight: bold;
+            font-size: 15px;
+            background-color: transparent;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
         }
-        .link-button:hover {
-            box-shadow: 0 0 10px;
-        }
+
         .link-button i {
-            font-size: 20px;
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
         }
-        .link-button span {
+
+        .link-button span.text {
             flex-grow: 1;
             text-align: left;
             margin-left: 10px;
         }
-        .whatsapp {
+
+        .link-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* 1. WhatsApp Principal */
+        .whatsapp-1 {
             border: 2px solid #25d366;
-            box-shadow: 0 0 5px #25d366;
+            box-shadow: 0 0 6px rgba(37, 211, 102, 0.4);
         }
-        .whatsapp:hover {
-            background-color: rgba(37, 211, 102, 0.1);
-            box-shadow: 0 0 10px #25d366;
+        .whatsapp-1:hover {
+            background-color: rgba(37, 211, 102, 0.15);
+            box-shadow: 0 0 12px #25d366;
         }
+
+        /* 2. WhatsApp Secundario */
+        .whatsapp-2 {
+            border: 2px solid #25d366;
+            box-shadow: 0 0 6px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-2:hover {
+            background-color: rgba(37, 211, 102, 0.15);
+            box-shadow: 0 0 12px #25d366;
+        }
+
+        /* 3. Telegram */
         .telegram {
             border: 2px solid #0088cc;
-            box-shadow: 0 0 5px #0088cc;
+            box-shadow: 0 0 6px rgba(0, 136, 204, 0.4);
         }
         .telegram:hover {
-            background-color: rgba(0, 136, 204, 0.1);
-            box-shadow: 0 0 10px #0088cc;
+            background-color: rgba(0, 136, 204, 0.15);
+            box-shadow: 0 0 12px #0088cc;
         }
+
+        /* 4. YouTube */
         .youtube {
             border: 2px solid #ff0000;
-            box-shadow: 0 0 5px #ff0000;
+            box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
         }
         .youtube:hover {
-            background-color: rgba(255, 0, 0, 0.1);
-            box-shadow: 0 0 10px #ff0000;
+            background-color: rgba(255, 0, 0, 0.15);
+            box-shadow: 0 0 12px #ff0000;
         }
+
+        /* 5. Discord */
         .discord {
             border: 2px solid #5865F2;
-            box-shadow: 0 0 5px #5865F2;
+            box-shadow: 0 0 6px rgba(88, 101, 242, 0.4);
         }
         .discord:hover {
-            background-color: rgba(88, 101, 242, 0.1);
-            box-shadow: 0 0 10px #5865F2;
+            background-color: rgba(88, 101, 242, 0.15);
+            box-shadow: 0 0 12px #5865F2;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="logo-container">
             <img src="logo.jpg" alt="Logo PINKY MODZ" class="logo">
-            <div class="logo-neon"></div>
         </div>
-        <h1>PINKY MODZ</h1>
-        <p>Bienvenido a mi comunidad. Únete a mis redes oficiales aquí abajo.</p>
         
-        <!-- Canal de WhatsApp Principal -->
-        <a href="https://whatsapp.com/channel/0029Vb7e1V2CMY0N0wdR9X1c" class="link-button whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            <span>Canal de WhatsApp</span>
-            <span>🟢</span>
-        </a>
+        <h1>PINKY MODZ</h1>
+        <p class="description">Bienvenido a mi comunidad. Únete a mis redes oficiales aquí abajo.</p>
+        
+        <div class="btn-list">
+            <!-- 1. Canal de WhatsApp -->
+            <a href="https://whatsapp.com/channel/0029Vb7e1V2CMY0N0wdR9X1c" class="link-button whatsapp-1" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span class="text">Canal de WhatsApp</span>
+                <span>🟢</span>
+            </a>
 
-        <!-- Canal Secundario -->
-        <a href="https://whatsapp.com/channel/0029VbDjbTrChq6R2goQjd2C" class="link
+            <!-- 2. Canal Secundario -->
+            <a href="https://whatsapp.com/channel/0029VbDjbTrChq6R2goQjd2C" class="link-button whatsapp-2" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span class="text">Canal Secundario</span>
+                <span>🟢</span>
+            </a>
             
+            <!-- 3. Canal de Telegram -->
+            <a href="https://t.me/linkjkrgds13exe" class="link-button telegram" target="_blank">
+                <i class="fab fa-telegram-plane"></i>
+                <span class="text">Canal de Telegram</span>
+                <span>✈️</span>
+            </a>
+            
+            <!-- 4. Canal de YouTube -->
+            <a href="https://youtube.com/@pinkymodz?si=k6QAKMaXQvWhw9lj" class="link-button youtube" target="_blank">
+                <i class="fab fa-youtube"></i>
+                <span class="text">Canal de YouTube</span>
+                <span>🔴</span>
+            </a>
+
+            <!-- 5. Servidor de Discord -->
+            <a href="https://discord.gg/AEJPn4KzN" class="link-button discord" target="_blank">
+                <i class="fab fa-discord"></i>
+                <span class="text">DISCORT</span>
+                <span>👑</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+    </html>
+    
