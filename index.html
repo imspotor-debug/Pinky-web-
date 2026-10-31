@@ -3,154 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Poco Yo a Cor</title>
+  <title>POCOYÓXIT</title>
   <style>
     :root{
-      --bg: #09090b;
-      --bg-2: #111116;
-      --panel: #17171c;
-      --panel-2: #1d1d23;
-      --line: #2b2b32;
-      --red: #ff3838;
-      --red-2: #c51d1d;
-      --text: #f5f5f7;
-      --muted: #babac2;
-      --green: #35db8d;
-      --yellow: #ffc75f;
+      --bg: #07090d;
+      --bg-2: #10151d;
+      --panel: #121922;
+      --panel-2: #171f2a;
+      --panel-3: #1d2734;
+      --line: #233041;
+      --line-soft: rgba(255,255,255,0.06);
+      --text: #edf3ff;
+      --muted: #9aa8bb;
+      --red: #ff3b3b;
+      --red-2: #d72828;
+      --green: #27d17d;
+      --green-soft: rgba(39, 209, 125, 0.12);
+      --blue: #3b82f6;
+      --blue-soft: rgba(59,130,246,0.12);
+      --yellow: #f7c948;
+      --shadow: rgba(0,0,0,0.35);
     }
 
-    * { box-sizing: border-box; }
+    *{
+      box-sizing: border-box;
+    }
 
-    html, body {
+    html, body{
       margin: 0;
       min-height: 100%;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #07070a 0%, #101116 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       color: var(--text);
     }
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    body{
       min-height: 100vh;
     }
 
-    .hidden { display: none !important; }
-
-    .login-screen{
-      width: min(430px, 92vw);
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
-      padding: 28px 24px;
+    a{
+      color: inherit;
+      text-decoration: none;
     }
 
-    .brand{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 22px;
-      font-weight: 900;
-      font-size: 28px;
-      letter-spacing: 0.6px;
-    }
-
-    .brand-mark{
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      box-shadow: 0 0 24px rgba(255, 56, 56, 0.45);
-      font-weight: bold;
-    }
-
-    .login-title{
-      text-align: center;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 1.1px;
-      font-size: 12px;
-      margin-bottom: 16px;
-    }
-
-    .field{
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .field label{
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .field input{
-      width: 100%;
-      background: var(--panel-2);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 13px 14px;
-      color: var(--text);
-      outline: none;
-      font-size: 15px;
-    }
-
-    .field input:focus{
-      border-color: rgba(255,56,56,.85);
-      box-shadow: 0 0 0 3px rgba(255,56,56,0.12);
-    }
-
-    .login-actions{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .btn{
-      border: none;
-      border-radius: 12px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .18s ease;
-      padding: 14px 18px;
-    }
-
-    .btn:hover{ transform: translateY(-1px); }
-
-    .btn.primary{
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      color: white;
-      box-shadow: 0 12px 26px rgba(255,56,56,0.35);
-    }
-
-    .btn.secondary{
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      color: var(--text);
-    }
-
-    .demo-info{
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.55;
+    button, input, select{
+      font: inherit;
     }
 
     .app{
-      width: 100%;
       min-height: 100vh;
-      background: #08080a;
+      width: 100%;
     }
 
     .app-shell{
@@ -160,26 +62,46 @@
     }
 
     .sidebar{
-      background: linear-gradient(180deg, #0c0c10 0%, #15151a 100%);
+      background: linear-gradient(180deg, rgba(17,21,29,0.96), rgba(12,16,22,0.98));
       border-right: 1px solid var(--line);
-      padding: 22px 16px;
+      padding: 22px 16px 18px;
       position: relative;
     }
 
-    .sidebar .brand{
-      justify-content: flex-start;
-      margin-bottom: 26px;
-      font-size: 22px;
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 6px 18px;
+      margin-bottom: 14px;
     }
 
-    .menu{
+    .brand-mark{
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 0 18px rgba(255,59,59,0.45);
+    }
+
+    .brand-name{
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+    }
+
+    .nav{
       display: flex;
       flex-direction: column;
       gap: 8px;
       margin-top: 16px;
     }
 
-    .menu-item{
+    .nav-item{
       display: flex;
       align-items: center;
       gap: 10px;
@@ -187,20 +109,19 @@
       border-radius: 12px;
       color: var(--muted);
       border: 1px solid transparent;
-      background: transparent;
+      transition: 0.2s ease;
       cursor: pointer;
-      transition: .2s ease;
     }
 
-    .menu-item.active{
-      background: rgba(255,56,56,0.08);
-      border-color: rgba(255,56,56,0.35);
-      color: var(--text);
-    }
-
-    .menu-item:hover{
+    .nav-item:hover{
       background: rgba(255,255,255,0.02);
-      border-color: var(--line);
+      border-color: var(--line-soft);
+    }
+
+    .nav-item.active{
+      background: rgba(255,59,59,0.08);
+      border-color: rgba(255,59,59,0.35);
+      color: var(--text);
     }
 
     .dot{
@@ -208,10 +129,10 @@
       height: 8px;
       border-radius: 50%;
       background: var(--red);
-      box-shadow: 0 0 14px rgba(255,56,56,0.7);
+      box-shadow: 0 0 12px rgba(255,59,59,0.75);
     }
 
-    .sidebar-footer{
+    .sidebar-card{
       position: absolute;
       left: 16px;
       right: 16px;
@@ -222,10 +143,16 @@
       padding: 14px 12px;
       color: var(--muted);
       font-size: 13px;
+      line-height: 1.5;
     }
 
-    .content{
-      padding: 24px;
+    .status{
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .main{
+      padding: 26px;
     }
 
     .topbar{
@@ -233,67 +160,94 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 22px;
-      padding-bottom: 16px;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
       border-bottom: 1px solid var(--line);
     }
 
-    .topbar h2{
+    .title{
       margin: 0;
-      font-size: 28px;
+      font-size: 34px;
       font-weight: 900;
     }
 
-    .topbar .info{
+    .topbar-right{
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .user-pill{
+    .pill{
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--line);
       border-radius: 12px;
       padding: 10px 12px;
-      font-size: 13px;
       color: var(--muted);
+      font-size: 13px;
+    }
+
+    .btn{
+      border: none;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+    }
+
+    .btn.primary{
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: white;
+      box-shadow: 0 12px 24px rgba(255,59,59,0.25);
+    }
+
+    .btn.secondary{
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      border: 1px solid var(--line);
     }
 
     .stats{
       display: grid;
-      grid-template-columns: repeat(4, minmax(150px, 1fr));
-      gap: 16px;
-      margin-bottom: 22px;
+      grid-template-columns: repeat(4, minmax(170px, 1fr));
+      gap: 18px;
+      margin-bottom: 26px;
     }
 
-    .stat{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    .stat-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
       border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px 16px;
-      box-shadow: 0 16px 20px rgba(0,0,0,0.16);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.18);
     }
 
-    .stat .label{
+    .stat-label{
+      color: var(--muted);
       font-size: 12px;
       letter-spacing: 0.8px;
       text-transform: uppercase;
-      color: var(--muted);
     }
 
-    .stat .value{
-      margin-top: 10px;
-      font-size: 30px;
+    .stat-value{
+      margin-top: 12px;
+      font-size: 34px;
       font-weight: 900;
+      line-height: 1.1;
     }
 
-    .red{ color: var(--red); }
-    .green{ color: var(--green); }
-    .yellow{ color: var(--yellow); }
+    .red { color: var(--red); }
+    .green { color: var(--green); }
+    .blue { color: var(--blue); }
+    .yellow { color: var(--yellow); }
 
-    .layout{
+    .dashboard-grid{
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 22px;
     }
 
@@ -302,31 +256,31 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 20px;
-      box-shadow: 0 18px 30px rgba(0,0,0,0.18);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.18);
     }
 
-    .panel-head{
+    .panel-header{
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    .panel-head h3{
+    .panel-title{
       margin: 0;
       font-size: 18px;
       font-weight: 800;
     }
 
-    .badge{
-      background: rgba(255,56,56,0.08);
-      border: 1px solid rgba(255,56,56,0.35);
+    .tag{
+      background: rgba(255,59,59,0.08);
+      border: 1px solid rgba(255,59,59,0.35);
       color: var(--red);
-      padding: 8px 10px;
       border-radius: 10px;
+      padding: 8px 10px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .form-grid{
@@ -335,45 +289,45 @@
       gap: 16px;
     }
 
-    .field-panel{
+    .field{
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
 
-    .field-panel.full{
+    .field.full{
       grid-column: 1 / -1;
     }
 
-    .field-panel label{
+    .field label{
       color: var(--muted);
       font-size: 13px;
       font-weight: 700;
     }
 
-    .field-panel input,
-    .field-panel select{
+    .field input,
+    .field select{
       width: 100%;
       background: var(--panel-2);
       border: 1px solid var(--line);
       border-radius: 12px;
-      color: var(--text);
       padding: 13px 12px;
+      color: var(--text);
       outline: none;
       font-size: 15px;
     }
 
-    .field-panel input:focus,
-    .field-panel select:focus{
-      border-color: rgba(255,56,56,0.8);
-      box-shadow: 0 0 0 3px rgba(255,56,56,0.12);
+    .field input:focus,
+    .field select:focus{
+      border-color: rgba(59,130,246,0.8);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
     }
 
     .actions{
+      margin-top: 18px;
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 18px;
     }
 
     .generated-box{
@@ -392,12 +346,12 @@
       margin-bottom: 10px;
     }
 
-    .generated-link{
+    .link-box{
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 12px;
-      background: rgba(0,0,0,0.25);
+      background: rgba(0,0,0,0.24);
       border: 1px solid var(--line);
       border-radius: 10px;
       padding: 12px 14px;
@@ -405,9 +359,9 @@
     }
 
     .copy-btn{
-      white-space: nowrap;
-      background: rgba(255,56,56,0.12);
-      border: 1px solid rgba(255,56,56,0.4);
+      flex-shrink: 0;
+      background: rgba(255,59,59,0.12);
+      border: 1px solid rgba(255,59,59,0.38);
       color: var(--red);
       border-radius: 10px;
       padding: 8px 10px;
@@ -431,20 +385,20 @@
     .ranking-table th{
       color: var(--muted);
       font-size: 11px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      letter-spacing: 0.7px;
       font-weight: 700;
     }
 
     .rank-pill{
       width: 30px;
       height: 30px;
+      border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
-      background: rgba(255,56,56,0.08);
-      border: 1px solid rgba(255,56,56,0.35);
+      background: rgba(255,59,59,0.08);
+      border: 1px solid rgba(255,59,59,0.35);
       color: var(--red);
       font-weight: 800;
     }
@@ -452,34 +406,139 @@
     .up{ color: var(--green); font-weight: 700; }
     .down{ color: var(--red); font-weight: 700; }
 
+    .list-table{
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .list-table th,
+    .list-table td{
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .list-table th{
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .chip{
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      display: inline-block;
+    }
+
+    .active-chip{
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid rgba(39,209,125,0.28);
+    }
+
+    .pending-chip{
+      background: rgba(247,201,73,0.12);
+      color: var(--yellow);
+      border: 1px solid rgba(247,201,73,0.25);
+    }
+
+    .summary-box{
+      background: linear-gradient(180deg, rgba(59,130,246,0.08), rgba(255,255,255,0.01));
+      border: 1px solid rgba(59,130,246,0.28);
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 18px;
+    }
+
+    .summary-top{
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    .summary-value{
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--blue);
+    }
+
+    .summary-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .mini-block{
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .mini-block .label{
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    .mini-block .amount{
+      margin-top: 8px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
     @media (max-width: 980px){
       .app-shell{
         grid-template-columns: 1fr;
       }
+
       .sidebar{
         border-right: none;
         border-bottom: 1px solid var(--line);
       }
-      .layout{
+
+      .dashboard-grid{
         grid-template-columns: 1fr;
       }
+
       .stats{
-        grid-template-columns: repeat(2, minmax(140px,1fr));
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
       }
     }
 
     @media (max-width: 620px){
-      .form-grid{
-        grid-template-columns: 1fr;
+      .main{
+        padding: 18px;
       }
+
       .stats{
         grid-template-columns: 1fr;
       }
+
+      .form-grid{
+        grid-template-columns: 1fr;
+      }
+
       .topbar{
         flex-direction: column;
         align-items: flex-start;
       }
-      .generated-link{
+
+      .link-box{
         flex-direction: column;
         align-items: flex-start;
       }
@@ -487,107 +546,82 @@
   </style>
 </head>
 <body>
-
-  <div class="login-screen" id="loginScreen">
-    <div class="brand">
-      <div class="brand-mark">P</div>
-      <div>Poco Yo a Cor</div>
-    </div>
-
-    <div class="login-title">Acceso al panel</div>
-
-    <div class="field">
-      <label for="username">Usuario</label>
-      <input id="username" type="text" value="admin" />
-    </div>
-
-    <div class="field">
-      <label for="password">Contraseña</label>
-      <input id="password" type="password" value="123456" />
-    </div>
-
-    <div class="login-actions">
-      <button class="btn primary" id="loginBtn">Entrar</button>
-      <button class="btn secondary" id="demoBtn">Modo demo</button>
-    </div>
-
-    <div class="demo-info">
-      Demo: usa “admin” y “123456”.<br />
-      Esta es la versión de prueba del dashboard rojo/negro.
-    </div>
-  </div>
-
-  <div class="app hidden" id="app">
+  <div class="app">
     <div class="app-shell">
       <aside class="sidebar">
         <div class="brand">
           <div class="brand-mark">P</div>
-          <div>Poco Yo a Cor</div>
+          <div class="brand-name">POCOYÓXIT</div>
         </div>
 
-        <div class="menu">
-          <div class="menu-item active"><span class="dot"></span> Dashboard</div>
-          <div class="menu-item"><span class="dot"></span> Generador</div>
-          <div class="menu-item"><span class="dot"></span> Ranking</div>
-          <div class="menu-item"><span class="dot"></span> Campañas</div>
-          <div class="menu-item"><span class="dot"></span> Configuración</div>
-        </div>
+        <nav class="nav">
+          <div class="nav-item active"><span class="dot"></span> Dashboard</div>
+          <div class="nav-item"><span class="dot"></span> Acortador</div>
+          <div class="nav-item"><span class="dot"></span> Ranking</div>
+          <div class="nav-item"><span class="dot"></span> Campañas</div>
+          <div class="nav-item"><span class="dot"></span> Configuración</div>
+        </nav>
 
-        <div class="sidebar-footer">
-          <strong>Estado:</strong> Actualización cada 24h<br />
-          <span style="color: var(--green);">Activo</span>
+        <div class="sidebar-card">
+          <strong>Estado del sistema</strong><br />
+          Actualización automática cada 24h<br />
+          <span class="status">• En línea</span>
         </div>
       </aside>
 
-      <main class="content">
-        <div class="topbar">
-          <h2>Dashboard</h2>
-          <div class="info">
-            <div class="user-pill">Admin • 24H</div>
-            <button class="btn secondary" id="logoutBtn">Cerrar sesión</button>
+      <main class="main">
+        <header class="topbar">
+          <h1 class="title">Dashboard</h1>
+
+          <div class="topbar-right">
+            <div class="pill">Admin • 24H</div>
+            <button class="btn secondary">Cerrar sesión</button>
           </div>
-        </div>
+        </header>
 
         <section class="stats">
-          <div class="stat">
-            <div class="label">Enlaces</div>
-            <div class="value red">128</div>
+          <div class="stat-card">
+            <div class="stat-label">Saldo disponible</div>
+            <div class="stat-value red">$4,280.30</div>
           </div>
-          <div class="stat">
-            <div class="label">Clics</div>
-            <div class="value green">8.4K</div>
+
+          <div class="stat-card">
+            <div class="stat-label">Total clics</div>
+            <div class="stat-value green">128.4K</div>
           </div>
-          <div class="stat">
-            <div class="label">Ganancias</div>
-            <div class="value yellow">$1.2K</div>
+
+          <div class="stat-card">
+            <div class="stat-label">Enlaces activos</div>
+            <div class="stat-value blue">86</div>
           </div>
-          <div class="stat">
-            <div class="label">ROI</div>
-            <div class="value">+24%</div>
+
+          <div class="stat-card">
+            <div class="stat-label">Ingresos</div>
+            <div class="stat-value yellow">$1,260.00</div>
           </div>
         </section>
 
-        <section class="layout">
+        <section class="dashboard-grid">
           <div class="panel">
-            <div class="panel-head">
-              <h3>Crear campaña</h3>
-              <span class="badge">Generador</span>
+            <div class="panel-header">
+              <h3 class="panel-title">Acortador / Monetización</h3>
+              <span class="tag">Generación</span>
             </div>
 
             <div class="form-grid">
-              <div class="field-panel">
-                <label for="title">Título del panel</label>
-                <input id="title" type="text" value="Campaña 1 - Clicks rápidos" />
+              <div class="field full">
+                <label for="targetUrl">URL de destino</label>
+                <input id="targetUrl" type="url" value="https://example.com/oferta-premium" />
               </div>
 
-              <div class="field-panel">
-                <label for="price">Pago por anuncio</label>
-                <input id="price" type="number" min="0.01" step="0.01" value="0.35" />
+              <div class="field">
+                <label for="linkTitle">Título / etiqueta</label>
+                <input id="linkTitle" type="text" value="Oferta especial del día" />
               </div>
 
-              <div class="field-panel">
-                <label for="steps">Cantidad de pasos</label>
-                <select id="steps">
+              <div class="field">
+                <label for="stepSelect">Pasos sugeridos</label>
+                <select id="stepSelect">
                   <option value="1">1 paso</option>
                   <option value="2">2 pasos</option>
                   <option value="3">3 pasos</option>
@@ -597,43 +631,79 @@
                   <option value="7">7 pasos</option>
                   <option value="8">8 pasos</option>
                   <option value="9">9 pasos</option>
-                  <option value="10" selected>10 pasos</option>
+                  <option value="10">10 pasos</option>
+                  <option value="11">11 pasos</option>
+                  <option value="12" selected>12 pasos</option>
                 </select>
               </div>
 
-              <div class="field-panel">
-                <label for="maxAds">Máximo por anuncio</label>
-                <input id="maxAds" type="number" min="1" max="10" value="10" />
+              <div class="field">
+                <label for="pricePerClick">Pago por click</label>
+                <input id="pricePerClick" type="number" step="0.01" min="0.01" value="0.35" />
               </div>
 
-              <div class="field-panel full">
-                <label for="destino">Enlace de destino final</label>
-                <input id="destino" type="url" value="https://example.com/oferta" />
+              <div class="field">
+                <label for="maxPerVisitor">Máx. por visitante</label>
+                <input id="maxPerVisitor" type="number" min="1" max="10" value="10" />
               </div>
 
-              <div class="field-panel full">
-                <label for="shortUrl">Enlace corto / acortador</label>
-                <input id="shortUrl" type="text" placeholder="Se generará el enlace..." />
+              <div class="field">
+                <label for="campaignStatus">Estado</label>
+                <select id="campaignStatus">
+                  <option value="active" selected>Activo</option>
+                  <option value="paused">Pausado</option>
+                  <option value="draft">Borrador</option>
+                </select>
               </div>
             </div>
 
             <div class="actions">
-              <button class="btn primary" id="generateLinkBtn">Generar enlace</button>
+              <button class="btn primary" id="generateBtn">Generar enlace</button>
               <button class="btn secondary" id="clearBtn">Vaciar</button>
             </div>
 
             <div class="generated-box">
               <div class="small-label">Enlace generado</div>
-              <div class="generated-link">
-                <span id="generatedLink">https://pocoyacor.app/go/abcd1234</span>
+              <div class="link-box">
+                <span id="generatedLink">https://pocoyoxit.app/short/ab12cd34</span>
                 <button class="copy-btn" id="copyBtn">Copiar</button>
+              </div>
+            </div>
+
+            <div class="summary-box">
+              <div class="summary-top">
+                <span>Resumen de ingresos</span>
+                <span>Hoy</span>
+              </div>
+              <div class="summary-value">$312.80</div>
+
+              <div class="summary-grid">
+                <div class="mini-block">
+                  <div class="label">Hoy</div>
+                  <div class="amount">$312.80</div>
+                </div>
+
+                <div class="mini-block">
+                  <div class="label">Ayer</div>
+                  <div class="amount">$285.40</div>
+                </div>
+
+                <div class="mini-block">
+                  <div class="label">Mes</div>
+                  <div class="amount">$8,940.50</div>
+                </div>
+
+                <div class="mini-block">
+                  <div class="label">Total</div>
+                  <div class="amount">$14,890.10</div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="panel">
-            <div class="panel-head">
-              <h3>Ranking</h3>
+            <div class="panel-header">
+              <h3 class="panel-title">Ranking</h3>
               <button class="btn secondary" id="refreshBtn">Actualizar 24h</button>
             </div>
 
@@ -681,78 +751,47 @@
             </table>
           </div>
         </section>
+
+        <div class="panel" style="margin-top: 22px;">
+          <div class="panel-header">
+            <h3 class="panel-title">Enlaces recientes</h3>
+            <span class="tag">Historial</span>
+          </div>
+
+          <table class="list-table">
+            <thead>
+              <tr>
+                <th>Enlace</th>
+                <th>Visitas</th>
+                <th>Estado</th>
+                <th>Ingreso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>pocoyoxit.app/short/x9y2</td>
+                <td>13,840</td>
+                <td><span class="chip active-chip">Activo</span></td>
+                <td>$184.90</td>
+              </tr>
+              <tr>
+                <td>pocoyoxit.app/short/p4k8</td>
+                <td>9,260</td>
+                <td><span class="chip active-chip">Activo</span></td>
+                <td>$126.50</td>
+              </tr>
+              <tr>
+                <td>pocoyoxit.app/short/r7m3</td>
+                <td>6,140</td>
+                <td><span class="chip pending-chip">Pausado</span></td>
+                <td>$78.20</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </main>
     </div>
   </div>
 
   <script>
-    const loginScreen = document.getElementById("loginScreen");
-    const app = document.getElementById("app");
-
-    function showApp() {
-      loginScreen.classList.add("hidden");
-      app.classList.remove("hidden");
-    }
-
-    function showLogin() {
-      app.classList.add("hidden");
-      loginScreen.classList.remove("hidden");
-    }
-
-    document.getElementById("loginBtn").addEventListener("click", function () {
-      const user = document.getElementById("username").value.trim();
-      const pass = document.getElementById("password").value.trim();
-
-      if (user === "admin" && pass === "123456") {
-        showApp();
-      } else {
-        alert("Usuario o contraseña incorrectos. Usa admin / 123456");
-      }
-    });
-
-    document.getElementById("demoBtn").addEventListener("click", function () {
-      document.getElementById("username").value = "admin";
-      document.getElementById("password").value = "123456";
-      showApp();
-    });
-
-    document.getElementById("logoutBtn").addEventListener("click", function () {
-      showLogin();
-    });
-
-    document.getElementById("generateLinkBtn").addEventListener("click", function () {
-      const destino = document.getElementById("destino").value.trim();
-
-      if (!destino) {
-        alert("Debes poner el enlace de destino final.");
-        return;
-      }
-
-      const title = document.getElementById("title").value.trim() || "Campaña sin título";
-      const steps = document.getElementById("steps").value || "1";
-      const token = Math.random().toString(36).slice(2, 10);
-
-      const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-      const finalLink = `https://pocoyacor.app/${slug || "campana"}-${steps}p/${token}`;
-
-      document.getElementById("generatedLink").textContent = finalLink;
-      document.getElementById("shortUrl").value = finalLink;
-    });
-
-    document.getElementById("clearBtn").addEventListener("click", function () {
-      document.getElementById("title").value = "";
-      document.getElementById("price").value = "0.35";
-      document.getElementById("steps").value = "10";
-      document.getElementById("maxAds").value = "10";
-      document.getElementById("destino").value = "";
-      document.getElementById("shortUrl").value = "";
-      document.getElementById("generatedLink").textContent = "https://pocoyacor.app/go/abcd1234";
-    });
-
-    document.getElementById("copyBtn").addEventListener("click", async function () {
-      const text = document.getElementById("generatedLink").textContent;
-      try {
-        await navigator.clipboard.writeText(text);
-        document.getElementById("copyBtn").textContent = "¡Copiado!";
-        setTimeout(() => document.getElementById("copyBtn").textContent = "Copiar", 1200);
-      } c
+    const targetUrl =
