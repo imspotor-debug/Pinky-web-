@@ -5,30 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Poco Yo a Cor</title>
   <style>
-    :root {
-      --bg: #0a0a0d;
-      --bg2: #111116;
+    :root{
+      --bg: #09090b;
+      --bg-2: #111116;
       --panel: #17171c;
       --panel-2: #1d1d23;
-      --panel-3: #1a1a1f;
-      --card: #141419;
-      --line: #2a2a32;
-      --red: #ff3737;
-      --red-dark: #ca1d1d;
-      --red-soft: rgba(255, 55, 55, 0.1);
-      --text: #f4f4f5;
-      --muted: #b7b7c0;
-      --green: #2ad67d;
-      --yellow: #ffcf5a;
-      --shadow: rgba(0,0,0,0.35);
+      --line: #2b2b32;
+      --red: #ff3838;
+      --red-2: #c51d1d;
+      --text: #f5f5f7;
+      --muted: #babac2;
+      --green: #35db8d;
+      --yellow: #ffc75f;
     }
 
     * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
-      height: 100%;
+      min-height: 100%;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #09090b 0%, #111116 100%);
+      background: linear-gradient(180deg, #07070a 0%, #101116 100%);
       color: var(--text);
     }
 
@@ -36,189 +33,189 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 100vh;
     }
 
     .hidden { display: none !important; }
 
-    .login-screen {
-      width: min(420px, 92vw);
+    .login-screen{
+      width: min(430px, 92vw);
       background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
       border: 1px solid var(--line);
       border-radius: 22px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
       padding: 28px 24px;
     }
 
-    .brand {
+    .brand{
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       font-weight: 900;
       font-size: 28px;
-      letter-spacing: 0.7px;
+      letter-spacing: 0.6px;
     }
 
-    .brand-mark {
+    .brand-mark{
       width: 44px;
       height: 44px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
       border-radius: 14px;
-      box-shadow: 0 0 24px rgba(255, 55, 55, 0.45);
-      font-size: 22px;
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      box-shadow: 0 0 24px rgba(255, 56, 56, 0.45);
       font-weight: bold;
     }
 
-    .login-title {
-      font-size: 12px;
-      letter-spacing: 1.2px;
+    .login-title{
+      text-align: center;
       color: var(--muted);
       text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 18px;
+      letter-spacing: 1.1px;
+      font-size: 12px;
+      margin-bottom: 16px;
     }
 
-    .field {
+    .field{
       display: flex;
       flex-direction: column;
       gap: 8px;
       margin-bottom: 16px;
     }
 
-    .field label {
+    .field label{
       color: var(--muted);
       font-size: 13px;
       font-weight: 700;
     }
 
-    .field input {
+    .field input{
       width: 100%;
       background: var(--panel-2);
-      color: var(--text);
       border: 1px solid var(--line);
-      padding: 13px 14px;
       border-radius: 12px;
-      font-size: 15px;
+      padding: 13px 14px;
+      color: var(--text);
       outline: none;
+      font-size: 15px;
     }
 
-    .field input:focus {
-      border-color: rgba(255, 55, 55, 0.8);
-      box-shadow: 0 0 0 3px rgba(255, 55, 55, 0.12);
+    .field input:focus{
+      border-color: rgba(255,56,56,.85);
+      box-shadow: 0 0 0 3px rgba(255,56,56,0.12);
     }
 
-    .login-actions {
-      margin-top: 8px;
+    .login-actions{
       display: flex;
       gap: 10px;
-      align-items: center;
       flex-wrap: wrap;
+      margin-top: 8px;
     }
 
-    .btn {
+    .btn{
       border: none;
       border-radius: 12px;
       font-weight: 800;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
-      color: white;
+      transition: transform .18s ease;
       padding: 14px 18px;
-      box-shadow: 0 12px 26px rgba(255,55,55,0.4);
     }
 
-    .btn.secondary {
+    .btn:hover{ transform: translateY(-1px); }
+
+    .btn.primary{
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: white;
+      box-shadow: 0 12px 26px rgba(255,56,56,0.35);
+    }
+
+    .btn.secondary{
       background: rgba(255,255,255,0.04);
-      color: var(--text);
       border: 1px solid var(--line);
-      padding: 13px 16px;
+      color: var(--text);
     }
 
-    .demo-info {
+    .demo-info{
       margin-top: 18px;
-      border-top: 1px solid var(--line);
       padding-top: 16px;
+      border-top: 1px solid var(--line);
+      text-align: center;
       color: var(--muted);
       font-size: 12px;
-      text-align: center;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    .app {
+    .app{
       width: 100%;
       min-height: 100vh;
       background: #08080a;
     }
 
-    .app-shell {
+    .app-shell{
       display: grid;
       grid-template-columns: 250px 1fr;
       min-height: 100vh;
     }
 
-    .sidebar {
-      background: linear-gradient(180deg, #0d0d10 0%, #141419 100%);
+    .sidebar{
+      background: linear-gradient(180deg, #0c0c10 0%, #15151a 100%);
       border-right: 1px solid var(--line);
       padding: 22px 16px;
+      position: relative;
     }
 
-    .sidebar .brand {
+    .sidebar .brand{
       justify-content: flex-start;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
       font-size: 22px;
     }
 
-    .menu {
+    .menu{
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 18px;
+      margin-top: 16px;
     }
 
-    .menu-item {
+    .menu-item{
       display: flex;
       align-items: center;
       gap: 10px;
       padding: 12px 12px;
-      color: var(--muted);
       border-radius: 12px;
+      color: var(--muted);
       border: 1px solid transparent;
+      background: transparent;
       cursor: pointer;
-      transition: 0.2s ease;
+      transition: .2s ease;
     }
 
-    .menu-item.active {
-      background: rgba(255, 55, 55, 0.08);
-      border-color: rgba(255, 55, 55, 0.35);
+    .menu-item.active{
+      background: rgba(255,56,56,0.08);
+      border-color: rgba(255,56,56,0.35);
       color: var(--text);
     }
 
-    .menu-item:hover {
+    .menu-item:hover{
       background: rgba(255,255,255,0.02);
       border-color: var(--line);
     }
 
-    .dot {
+    .dot{
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--red);
-      box-shadow: 0 0 14px rgba(255, 55, 55, 0.7);
+      box-shadow: 0 0 14px rgba(255,56,56,0.7);
     }
 
-    .sidebar-footer {
+    .sidebar-footer{
       position: absolute;
-      bottom: 24px;
       left: 16px;
       right: 16px;
+      bottom: 18px;
       background: rgba(255,255,255,0.02);
       border: 1px solid var(--line);
       border-radius: 14px;
@@ -227,11 +224,11 @@
       font-size: 13px;
     }
 
-    .content {
+    .content{
       padding: 24px;
     }
 
-    .topbar {
+    .topbar{
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -241,19 +238,19 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .topbar h2 {
+    .topbar h2{
       margin: 0;
       font-size: 28px;
       font-weight: 900;
     }
 
-    .topbar .info {
+    .topbar .info{
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .user-pill {
+    .user-pill{
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--line);
       border-radius: 12px;
@@ -262,16 +259,500 @@
       color: var(--muted);
     }
 
-    .stats {
+    .stats{
       display: grid;
       grid-template-columns: repeat(4, minmax(150px, 1fr));
       gap: 16px;
       margin-bottom: 22px;
     }
 
-    .stat {
+    .stat{
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 18px 16px;
-      box-shadow: 0 16px 20px rgba(0,0,0
+      box-shadow: 0 16px 20px rgba(0,0,0,0.16);
+    }
+
+    .stat .label{
+      font-size: 12px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .stat .value{
+      margin-top: 10px;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .red{ color: var(--red); }
+    .green{ color: var(--green); }
+    .yellow{ color: var(--yellow); }
+
+    .layout{
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 22px;
+    }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.18);
+    }
+
+    .panel-head{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .panel-head h3{
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .badge{
+      background: rgba(255,56,56,0.08);
+      border: 1px solid rgba(255,56,56,0.35);
+      color: var(--red);
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .form-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .field-panel{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field-panel.full{
+      grid-column: 1 / -1;
+    }
+
+    .field-panel label{
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .field-panel input,
+    .field-panel select{
+      width: 100%;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--text);
+      padding: 13px 12px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .field-panel input:focus,
+    .field-panel select:focus{
+      border-color: rgba(255,56,56,0.8);
+      box-shadow: 0 0 0 3px rgba(255,56,56,0.12);
+    }
+
+    .actions{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .generated-box{
+      margin-top: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .small-label{
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .generated-link{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      word-break: break-all;
+    }
+
+    .copy-btn{
+      white-space: nowrap;
+      background: rgba(255,56,56,0.12);
+      border: 1px solid rgba(255,56,56,0.4);
+      color: var(--red);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .ranking-table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .ranking-table th,
+    .ranking-table td{
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .ranking-table th{
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      font-weight: 700;
+    }
+
+    .rank-pill{
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,56,56,0.08);
+      border: 1px solid rgba(255,56,56,0.35);
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    .up{ color: var(--green); font-weight: 700; }
+    .down{ color: var(--red); font-weight: 700; }
+
+    @media (max-width: 980px){
+      .app-shell{
+        grid-template-columns: 1fr;
+      }
+      .sidebar{
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+      .layout{
+        grid-template-columns: 1fr;
+      }
+      .stats{
+        grid-template-columns: repeat(2, minmax(140px,1fr));
+      }
+    }
+
+    @media (max-width: 620px){
+      .form-grid{
+        grid-template-columns: 1fr;
+      }
+      .stats{
+        grid-template-columns: 1fr;
+      }
+      .topbar{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .generated-link{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-screen" id="loginScreen">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div>Poco Yo a Cor</div>
+    </div>
+
+    <div class="login-title">Acceso al panel</div>
+
+    <div class="field">
+      <label for="username">Usuario</label>
+      <input id="username" type="text" value="admin" />
+    </div>
+
+    <div class="field">
+      <label for="password">Contraseña</label>
+      <input id="password" type="password" value="123456" />
+    </div>
+
+    <div class="login-actions">
+      <button class="btn primary" id="loginBtn">Entrar</button>
+      <button class="btn secondary" id="demoBtn">Modo demo</button>
+    </div>
+
+    <div class="demo-info">
+      Demo: usa “admin” y “123456”.<br />
+      Esta es la versión de prueba del dashboard rojo/negro.
+    </div>
+  </div>
+
+  <div class="app hidden" id="app">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">P</div>
+          <div>Poco Yo a Cor</div>
+        </div>
+
+        <div class="menu">
+          <div class="menu-item active"><span class="dot"></span> Dashboard</div>
+          <div class="menu-item"><span class="dot"></span> Generador</div>
+          <div class="menu-item"><span class="dot"></span> Ranking</div>
+          <div class="menu-item"><span class="dot"></span> Campañas</div>
+          <div class="menu-item"><span class="dot"></span> Configuración</div>
+        </div>
+
+        <div class="sidebar-footer">
+          <strong>Estado:</strong> Actualización cada 24h<br />
+          <span style="color: var(--green);">Activo</span>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="topbar">
+          <h2>Dashboard</h2>
+          <div class="info">
+            <div class="user-pill">Admin • 24H</div>
+            <button class="btn secondary" id="logoutBtn">Cerrar sesión</button>
+          </div>
+        </div>
+
+        <section class="stats">
+          <div class="stat">
+            <div class="label">Enlaces</div>
+            <div class="value red">128</div>
+          </div>
+          <div class="stat">
+            <div class="label">Clics</div>
+            <div class="value green">8.4K</div>
+          </div>
+          <div class="stat">
+            <div class="label">Ganancias</div>
+            <div class="value yellow">$1.2K</div>
+          </div>
+          <div class="stat">
+            <div class="label">ROI</div>
+            <div class="value">+24%</div>
+          </div>
+        </section>
+
+        <section class="layout">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Crear campaña</h3>
+              <span class="badge">Generador</span>
+            </div>
+
+            <div class="form-grid">
+              <div class="field-panel">
+                <label for="title">Título del panel</label>
+                <input id="title" type="text" value="Campaña 1 - Clicks rápidos" />
+              </div>
+
+              <div class="field-panel">
+                <label for="price">Pago por anuncio</label>
+                <input id="price" type="number" min="0.01" step="0.01" value="0.35" />
+              </div>
+
+              <div class="field-panel">
+                <label for="steps">Cantidad de pasos</label>
+                <select id="steps">
+                  <option value="1">1 paso</option>
+                  <option value="2">2 pasos</option>
+                  <option value="3">3 pasos</option>
+                  <option value="4">4 pasos</option>
+                  <option value="5">5 pasos</option>
+                  <option value="6">6 pasos</option>
+                  <option value="7">7 pasos</option>
+                  <option value="8">8 pasos</option>
+                  <option value="9">9 pasos</option>
+                  <option value="10" selected>10 pasos</option>
+                </select>
+              </div>
+
+              <div class="field-panel">
+                <label for="maxAds">Máximo por anuncio</label>
+                <input id="maxAds" type="number" min="1" max="10" value="10" />
+              </div>
+
+              <div class="field-panel full">
+                <label for="destino">Enlace de destino final</label>
+                <input id="destino" type="url" value="https://example.com/oferta" />
+              </div>
+
+              <div class="field-panel full">
+                <label for="shortUrl">Enlace corto / acortador</label>
+                <input id="shortUrl" type="text" placeholder="Se generará el enlace..." />
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn primary" id="generateLinkBtn">Generar enlace</button>
+              <button class="btn secondary" id="clearBtn">Vaciar</button>
+            </div>
+
+            <div class="generated-box">
+              <div class="small-label">Enlace generado</div>
+              <div class="generated-link">
+                <span id="generatedLink">https://pocoyacor.app/go/abcd1234</span>
+                <button class="copy-btn" id="copyBtn">Copiar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Ranking</h3>
+              <button class="btn secondary" id="refreshBtn">Actualizar 24h</button>
+            </div>
+
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Usuario</th>
+                  <th>Puntos</th>
+                  <th>ROI</th>
+                </tr>
+              </thead>
+              <tbody id="rankingBody">
+                <tr>
+                  <td><span class="rank-pill">1</span></td>
+                  <td>@maria_ads</td>
+                  <td>9,480</td>
+                  <td class="up">+24%</td>
+                </tr>
+                <tr>
+                  <td><span class="rank-pill">2</span></td>
+                  <td>@carlos_click</td>
+                  <td>8,740</td>
+                  <td class="up">+19%</td>
+                </tr>
+                <tr>
+                  <td><span class="rank-pill">3</span></td>
+                  <td>@linkfast</td>
+                  <td>7,930</td>
+                  <td class="up">+14%</td>
+                </tr>
+                <tr>
+                  <td><span class="rank-pill">4</span></td>
+                  <td>@ninaflow</td>
+                  <td>6,540</td>
+                  <td class="down">-3%</td>
+                </tr>
+                <tr>
+                  <td><span class="rank-pill">5</span></td>
+                  <td>@dany_red</td>
+                  <td>5,210</td>
+                  <td class="up">+7%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const loginScreen = document.getElementById("loginScreen");
+    const app = document.getElementById("app");
+
+    function showApp() {
+      loginScreen.classList.add("hidden");
+      app.classList.remove("hidden");
+    }
+
+    function showLogin() {
+      app.classList.add("hidden");
+      loginScreen.classList.remove("hidden");
+    }
+
+    document.getElementById("loginBtn").addEventListener("click", function () {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      if (user === "admin" && pass === "123456") {
+        showApp();
+      } else {
+        alert("Usuario o contraseña incorrectos. Usa admin / 123456");
+      }
+    });
+
+    document.getElementById("demoBtn").addEventListener("click", function () {
+      document.getElementById("username").value = "admin";
+      document.getElementById("password").value = "123456";
+      showApp();
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      showLogin();
+    });
+
+    document.getElementById("generateLinkBtn").addEventListener("click", function () {
+      const destino = document.getElementById("destino").value.trim();
+
+      if (!destino) {
+        alert("Debes poner el enlace de destino final.");
+        return;
+      }
+
+      const title = document.getElementById("title").value.trim() || "Campaña sin título";
+      const steps = document.getElementById("steps").value || "1";
+      const token = Math.random().toString(36).slice(2, 10);
+
+      const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      const finalLink = `https://pocoyacor.app/${slug || "campana"}-${steps}p/${token}`;
+
+      document.getElementById("generatedLink").textContent = finalLink;
+      document.getElementById("shortUrl").value = finalLink;
+    });
+
+    document.getElementById("clearBtn").addEventListener("click", function () {
+      document.getElementById("title").value = "";
+      document.getElementById("price").value = "0.35";
+      document.getElementById("steps").value = "10";
+      document.getElementById("maxAds").value = "10";
+      document.getElementById("destino").value = "";
+      document.getElementById("shortUrl").value = "";
+      document.getElementById("generatedLink").textContent = "https://pocoyacor.app/go/abcd1234";
+    });
+
+    document.getElementById("copyBtn").addEventListener("click", async function () {
+      const text = document.getElementById("generatedLink").textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        document.getElementById("copyBtn").textContent = "¡Copiado!";
+        setTimeout(() => document.getElementById("copyBtn").textContent = "Copiar", 1200);
+      } c
