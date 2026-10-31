@@ -25,9 +25,7 @@
       --shadow: rgba(0,0,0,0.35);
     }
 
-    *{
-      box-sizing: border-box;
-    }
+    *{ box-sizing: border-box; }
 
     html, body{
       margin: 0;
@@ -50,9 +48,137 @@
       font: inherit;
     }
 
-    .app{
+    .hidden{
+      display: none !important;
+    }
+
+    .login-screen{
       min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-card{
+      width: min(440px, 92vw);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+      padding: 28px 24px;
+    }
+
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .brand-mark{
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 0 18px rgba(255,59,59,0.45);
+    }
+
+    .brand-name{
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    .login-title{
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .field{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .field label{
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .field input{
       width: 100%;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 14px;
+      color: var(--text);
+      outline: none;
+      font-size: 15px;
+    }
+
+    .field input:focus{
+      border-color: rgba(59,130,246,0.8);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+    }
+
+    .login-actions{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .btn{
+      border: none;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+    }
+
+    .btn.primary{
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: white;
+      box-shadow: 0 12px 24px rgba(255,59,59,0.25);
+    }
+
+    .btn.secondary{
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .demo-info{
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .app{
+      width: 100%;
+      min-height: 100vh;
+      background: #08080a;
     }
 
     .app-shell{
@@ -68,37 +194,17 @@
       position: relative;
     }
 
-    .brand{
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .sidebar .brand{
+      justify-content: flex-start;
       padding: 8px 6px 18px;
-      margin-bottom: 14px;
-    }
-
-    .brand-mark{
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      color: #fff;
-      font-weight: 900;
-      box-shadow: 0 0 18px rgba(255,59,59,0.45);
-    }
-
-    .brand-name{
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 0.4px;
+      margin-bottom: 16px;
     }
 
     .nav{
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .nav-item{
@@ -107,10 +213,10 @@
       gap: 10px;
       padding: 12px 12px;
       border-radius: 12px;
+      cursor: pointer;
       color: var(--muted);
       border: 1px solid transparent;
       transition: 0.2s ease;
-      cursor: pointer;
     }
 
     .nav-item:hover{
@@ -186,31 +292,6 @@
       font-size: 13px;
     }
 
-    .btn{
-      border: none;
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.18s ease, opacity 0.18s ease;
-    }
-
-    .btn:hover{
-      transform: translateY(-1px);
-    }
-
-    .btn.primary{
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      color: white;
-      box-shadow: 0 12px 24px rgba(255,59,59,0.25);
-    }
-
-    .btn.secondary{
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
     .stats{
       display: grid;
       grid-template-columns: repeat(4, minmax(170px, 1fr));
@@ -240,10 +321,10 @@
       line-height: 1.1;
     }
 
-    .red { color: var(--red); }
-    .green { color: var(--green); }
-    .blue { color: var(--blue); }
-    .yellow { color: var(--yellow); }
+    .red{ color: var(--red); }
+    .green{ color: var(--green); }
+    .blue{ color: var(--blue); }
+    .yellow{ color: var(--yellow); }
 
     .dashboard-grid{
       display: grid;
@@ -289,45 +370,45 @@
       gap: 16px;
     }
 
-    .field{
+    .field-panel{
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
 
-    .field.full{
+    .field-panel.full{
       grid-column: 1 / -1;
     }
 
-    .field label{
+    .field-panel label{
       color: var(--muted);
       font-size: 13px;
       font-weight: 700;
     }
 
-    .field input,
-    .field select{
+    .field-panel input,
+    .field-panel select{
       width: 100%;
       background: var(--panel-2);
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 13px 12px;
       color: var(--text);
+      padding: 13px 12px;
       outline: none;
       font-size: 15px;
     }
 
-    .field input:focus,
-    .field select:focus{
+    .field-panel input:focus,
+    .field-panel select:focus{
       border-color: rgba(59,130,246,0.8);
       box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
     }
 
     .actions{
-      margin-top: 18px;
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      margin-top: 18px;
     }
 
     .generated-box{
@@ -393,10 +474,10 @@
     .rank-pill{
       width: 30px;
       height: 30px;
-      border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      border-radius: 50%;
       background: rgba(255,59,59,0.08);
       border: 1px solid rgba(255,59,59,0.35);
       color: var(--red);
@@ -546,252 +627,15 @@
   </style>
 </head>
 <body>
-  <div class="app">
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <div class="brand-mark">P</div>
-          <div class="brand-name">POCOYÓXIT</div>
-        </div>
 
-        <nav class="nav">
-          <div class="nav-item active"><span class="dot"></span> Dashboard</div>
-          <div class="nav-item"><span class="dot"></span> Acortador</div>
-          <div class="nav-item"><span class="dot"></span> Ranking</div>
-          <div class="nav-item"><span class="dot"></span> Campañas</div>
-          <div class="nav-item"><span class="dot"></span> Configuración</div>
-        </nav>
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div class="brand-name">POCOYÓXIT</div>
+      </div>
 
-        <div class="sidebar-card">
-          <strong>Estado del sistema</strong><br />
-          Actualización automática cada 24h<br />
-          <span class="status">• En línea</span>
-        </div>
-      </aside>
+      <div class="login-title">Acceso al panel</div>
 
-      <main class="main">
-        <header class="topbar">
-          <h1 class="title">Dashboard</h1>
-
-          <div class="topbar-right">
-            <div class="pill">Admin • 24H</div>
-            <button class="btn secondary">Cerrar sesión</button>
-          </div>
-        </header>
-
-        <section class="stats">
-          <div class="stat-card">
-            <div class="stat-label">Saldo disponible</div>
-            <div class="stat-value red">$4,280.30</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-label">Total clics</div>
-            <div class="stat-value green">128.4K</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-label">Enlaces activos</div>
-            <div class="stat-value blue">86</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="stat-label">Ingresos</div>
-            <div class="stat-value yellow">$1,260.00</div>
-          </div>
-        </section>
-
-        <section class="dashboard-grid">
-          <div class="panel">
-            <div class="panel-header">
-              <h3 class="panel-title">Acortador / Monetización</h3>
-              <span class="tag">Generación</span>
-            </div>
-
-            <div class="form-grid">
-              <div class="field full">
-                <label for="targetUrl">URL de destino</label>
-                <input id="targetUrl" type="url" value="https://example.com/oferta-premium" />
-              </div>
-
-              <div class="field">
-                <label for="linkTitle">Título / etiqueta</label>
-                <input id="linkTitle" type="text" value="Oferta especial del día" />
-              </div>
-
-              <div class="field">
-                <label for="stepSelect">Pasos sugeridos</label>
-                <select id="stepSelect">
-                  <option value="1">1 paso</option>
-                  <option value="2">2 pasos</option>
-                  <option value="3">3 pasos</option>
-                  <option value="4">4 pasos</option>
-                  <option value="5">5 pasos</option>
-                  <option value="6">6 pasos</option>
-                  <option value="7">7 pasos</option>
-                  <option value="8">8 pasos</option>
-                  <option value="9">9 pasos</option>
-                  <option value="10">10 pasos</option>
-                  <option value="11">11 pasos</option>
-                  <option value="12" selected>12 pasos</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="pricePerClick">Pago por click</label>
-                <input id="pricePerClick" type="number" step="0.01" min="0.01" value="0.35" />
-              </div>
-
-              <div class="field">
-                <label for="maxPerVisitor">Máx. por visitante</label>
-                <input id="maxPerVisitor" type="number" min="1" max="10" value="10" />
-              </div>
-
-              <div class="field">
-                <label for="campaignStatus">Estado</label>
-                <select id="campaignStatus">
-                  <option value="active" selected>Activo</option>
-                  <option value="paused">Pausado</option>
-                  <option value="draft">Borrador</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="actions">
-              <button class="btn primary" id="generateBtn">Generar enlace</button>
-              <button class="btn secondary" id="clearBtn">Vaciar</button>
-            </div>
-
-            <div class="generated-box">
-              <div class="small-label">Enlace generado</div>
-              <div class="link-box">
-                <span id="generatedLink">https://pocoyoxit.app/short/ab12cd34</span>
-                <button class="copy-btn" id="copyBtn">Copiar</button>
-              </div>
-            </div>
-
-            <div class="summary-box">
-              <div class="summary-top">
-                <span>Resumen de ingresos</span>
-                <span>Hoy</span>
-              </div>
-              <div class="summary-value">$312.80</div>
-
-              <div class="summary-grid">
-                <div class="mini-block">
-                  <div class="label">Hoy</div>
-                  <div class="amount">$312.80</div>
-                </div>
-
-                <div class="mini-block">
-                  <div class="label">Ayer</div>
-                  <div class="amount">$285.40</div>
-                </div>
-
-                <div class="mini-block">
-                  <div class="label">Mes</div>
-                  <div class="amount">$8,940.50</div>
-                </div>
-
-                <div class="mini-block">
-                  <div class="label">Total</div>
-                  <div class="amount">$14,890.10</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel">
-            <div class="panel-header">
-              <h3 class="panel-title">Ranking</h3>
-              <button class="btn secondary" id="refreshBtn">Actualizar 24h</button>
-            </div>
-
-            <table class="ranking-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Usuario</th>
-                  <th>Puntos</th>
-                  <th>ROI</th>
-                </tr>
-              </thead>
-              <tbody id="rankingBody">
-                <tr>
-                  <td><span class="rank-pill">1</span></td>
-                  <td>@maria_ads</td>
-                  <td>9,480</td>
-                  <td class="up">+24%</td>
-                </tr>
-                <tr>
-                  <td><span class="rank-pill">2</span></td>
-                  <td>@carlos_click</td>
-                  <td>8,740</td>
-                  <td class="up">+19%</td>
-                </tr>
-                <tr>
-                  <td><span class="rank-pill">3</span></td>
-                  <td>@linkfast</td>
-                  <td>7,930</td>
-                  <td class="up">+14%</td>
-                </tr>
-                <tr>
-                  <td><span class="rank-pill">4</span></td>
-                  <td>@ninaflow</td>
-                  <td>6,540</td>
-                  <td class="down">-3%</td>
-                </tr>
-                <tr>
-                  <td><span class="rank-pill">5</span></td>
-                  <td>@dany_red</td>
-                  <td>5,210</td>
-                  <td class="up">+7%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <div class="panel" style="margin-top: 22px;">
-          <div class="panel-header">
-            <h3 class="panel-title">Enlaces recientes</h3>
-            <span class="tag">Historial</span>
-          </div>
-
-          <table class="list-table">
-            <thead>
-              <tr>
-                <th>Enlace</th>
-                <th>Visitas</th>
-                <th>Estado</th>
-                <th>Ingreso</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>pocoyoxit.app/short/x9y2</td>
-                <td>13,840</td>
-                <td><span class="chip active-chip">Activo</span></td>
-                <td>$184.90</td>
-              </tr>
-              <tr>
-                <td>pocoyoxit.app/short/p4k8</td>
-                <td>9,260</td>
-                <td><span class="chip active-chip">Activo</span></td>
-                <td>$126.50</td>
-              </tr>
-              <tr>
-                <td>pocoyoxit.app/short/r7m3</td>
-                <td>6,140</td>
-                <td><span class="chip pending-chip">Pausado</span></td>
-                <td>$78.20</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </main>
-    </div>
-  </div>
-
-  <script>
-    const targetUrl =
+      <div class="field">
+        <
