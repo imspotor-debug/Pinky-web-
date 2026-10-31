@@ -5,418 +5,273 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Poco Yo a Cor</title>
   <style>
-    :root{
-      --bg: #0b0b0d;
-      --panel: #141417;
-      --panel-2: #1b1b20;
-      --card: #1d1d22;
+    :root {
+      --bg: #0a0a0d;
+      --bg2: #111116;
+      --panel: #17171c;
+      --panel-2: #1d1d23;
+      --panel-3: #1a1a1f;
+      --card: #141419;
       --line: #2a2a32;
-      --red: #f32d2d;
-      --red-2: #c31717;
-      --text: #f5f5f5;
-      --muted: #b8b8c0;
-      --green: #2ddf7c;
-      --yellow: #ffcb44;
+      --red: #ff3737;
+      --red-dark: #ca1d1d;
+      --red-soft: rgba(255, 55, 55, 0.1);
+      --text: #f4f4f5;
+      --muted: #b7b7c0;
+      --green: #2ad67d;
+      --yellow: #ffcf5a;
+      --shadow: rgba(0,0,0,0.35);
     }
 
     * { box-sizing: border-box; }
-
-    body{
+    html, body {
       margin: 0;
+      height: 100%;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #09090b 0%, #111216 100%);
+      background: linear-gradient(180deg, #09090b 0%, #111116 100%);
       color: var(--text);
     }
 
-    .container{
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 25px 20px 60px;
-    }
-
-    .topbar{
+    body {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 18px 0 24px;
-      border-bottom: 1px solid var(--line);
+      justify-content: center;
     }
 
-    .brand{
+    .hidden { display: none !important; }
+
+    .login-screen {
+      width: min(420px, 92vw);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      padding: 28px 24px;
+    }
+
+    .brand {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-    }
-
-    .brand-mark{
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      color: #fff;
-      font-weight: 900;
-      box-shadow: 0 0 18px rgba(243,45,45,0.45);
-    }
-
-    .nav{
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav span{
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid transparent;
-    }
-
-    .nav .active{
-      color: var(--text);
-      border-color: rgba(243,45,45,0.5);
-      background: rgba(243,45,45,0.08);
-    }
-
-    .user-pill{
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 14px;
-    }
-
-    .hero{
-      margin-top: 22px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
-    }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
-    }
-
-    .main-panel{
-      padding: 24px;
-    }
-
-    .title{
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .h1{
-      font-size: clamp(28px, 4vw, 46px);
-      margin: 0 0 8px;
-      font-weight: 900;
-      line-height: 1.1;
-    }
-
-    .subtitle{
-      color: var(--muted);
-      font-size: 15px;
       margin-bottom: 20px;
-    }
-
-    .stats{
-      display: grid;
-      grid-template-columns: repeat(3, minmax(120px, 1fr));
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .stat{
-      padding: 18px 14px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-    }
-
-    .stat-label{
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-
-    .stat-value{
-      margin-top: 10px;
+      font-weight: 900;
       font-size: 28px;
-      font-weight: 800;
-    }
-
-    .stat-value.red{ color: var(--red); }
-    .stat-value.green{ color: var(--green); }
-    .stat-value.yellow{ color: var(--yellow); }
-
-    .side-panel{
-      padding: 20px;
-      background: linear-gradient(180deg, rgba(243,45,45,0.08), rgba(20,20,23,0.15));
-    }
-
-    .mini-card{
-      padding: 18px 16px;
-      border: 1px solid rgba(243,45,45,0.28);
-      border-radius: 14px;
-      background: rgba(243,45,45,0.05);
-      margin-bottom: 14px;
-    }
-
-    .mini-head{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 12px;
-      text-transform: uppercase;
       letter-spacing: 0.7px;
     }
 
-    .big-number{
-      font-size: 32px;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    .content{
-      margin-top: 26px;
+    .brand-mark {
+      width: 44px;
+      height: 44px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
+      place-items: center;
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      border-radius: 14px;
+      box-shadow: 0 0 24px rgba(255, 55, 55, 0.45);
+      font-size: 22px;
+      font-weight: bold;
     }
 
-    .form-card{
-      padding: 22px;
+    .login-title {
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 18px;
     }
 
-    .form-grid{
-      display: grid;
-      grid-template-columns: repeat(2, minmax(180px, 1fr));
-      gap: 18px;
-    }
-
-    .field{
+    .field {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      margin-bottom: 16px;
     }
 
-    .field label{
-      font-size: 13px;
+    .field label {
       color: var(--muted);
+      font-size: 13px;
       font-weight: 700;
     }
 
-    .field input,
-    .field select{
+    .field input {
       width: 100%;
       background: var(--panel-2);
-      border: 1px solid var(--line);
       color: var(--text);
-      padding: 13px 12px;
+      border: 1px solid var(--line);
+      padding: 13px 14px;
       border-radius: 12px;
-      outline: none;
       font-size: 15px;
+      outline: none;
     }
 
-    .field input:focus,
-    .field select:focus{
-      border-color: rgba(243,45,45,0.8);
-      box-shadow: 0 0 0 3px rgba(243,45,45,0.12);
+    .field input:focus {
+      border-color: rgba(255, 55, 55, 0.8);
+      box-shadow: 0 0 0 3px rgba(255, 55, 55, 0.12);
     }
 
-    .field.full{
-      grid-column: 1 / -1;
-    }
-
-    .actions{
-      margin-top: 20px;
+    .login-actions {
+      margin-top: 8px;
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 10px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
-    .btn{
+    .btn {
       border: none;
       border-radius: 12px;
-      padding: 13px 18px;
       font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      color: white;
+      padding: 14px 18px;
+      box-shadow: 0 12px 26px rgba(255,55,55,0.4);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 13px 16px;
+    }
+
+    .demo-info {
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .app {
+      width: 100%;
+      min-height: 100vh;
+      background: #08080a;
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background: linear-gradient(180deg, #0d0d10 0%, #141419 100%);
+      border-right: 1px solid var(--line);
+      padding: 22px 16px;
+    }
+
+    .sidebar .brand {
+      justify-content: flex-start;
+      margin-bottom: 24px;
+      font-size: 22px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 12px;
+      color: var(--muted);
+      border-radius: 12px;
+      border: 1px solid transparent;
       cursor: pointer;
       transition: 0.2s ease;
     }
 
-    .btn.primary{
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      color: #fff;
-      box-shadow: 0 10px 26px rgba(243,45,45,0.35);
-    }
-
-    .btn.secondary{
-      background: rgba(255,255,255,0.04);
+    .menu-item.active {
+      background: rgba(255, 55, 55, 0.08);
+      border-color: rgba(255, 55, 55, 0.35);
       color: var(--text);
-      border: 1px solid var(--line);
     }
 
-    .btn:hover{
-      transform: translateY(-1px);
+    .menu-item:hover {
+      background: rgba(255,255,255,0.02);
+      border-color: var(--line);
     }
 
-    .generated{
-      margin-top: 22px;
-      padding: 18px;
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 14px rgba(255, 55, 55, 0.7);
+    }
+
+    .sidebar-footer {
+      position: absolute;
+      bottom: 24px;
+      left: 16px;
+      right: 16px;
       background: rgba(255,255,255,0.02);
       border: 1px solid var(--line);
       border-radius: 14px;
-    }
-
-    .generated-label{
+      padding: 14px 12px;
       color: var(--muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-      margin-bottom: 10px;
+      font-size: 13px;
     }
 
-    .link-box{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      background: rgba(0,0,0,0.28);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 12px 14px;
-      color: #fff;
-      word-break: break-all;
+    .content {
+      padding: 24px;
     }
 
-    .copy{
-      flex-shrink: 0;
-      background: rgba(243,45,45,0.12);
-      color: var(--red);
-      border: 1px solid rgba(243,45,45,0.4);
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .ranking{
-      padding: 22px;
-    }
-
-    .header-rank{
+    .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .ranking-table{
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-    }
-
-    .ranking-table th,
-    .ranking-table td{
-      text-align: left;
-      padding: 12px 10px;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
       border-bottom: 1px solid var(--line);
-      font-size: 14px;
     }
 
-    .ranking-table th{
-      color: var(--muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
+    .topbar h2 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 900;
     }
 
-    .rank-pill{
-      display: inline-flex;
+    .topbar .info {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(243,45,45,0.12);
-      border: 1px solid rgba(243,45,45,0.4);
-      color: var(--red);
-      font-weight: 800;
+      gap: 12px;
     }
 
-    .positive{
-      color: var(--green);
-      font-weight: 700;
+    .user-pill {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    .negative{
-      color: var(--red);
-      font-weight: 700;
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
     }
 
-    @media (max-width: 920px){
-      .hero, .content{
-        grid-template-columns: 1fr;
-      }
-
-      .form-grid{
-        grid-template-columns: 1fr;
-      }
-
-      .topbar{
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .nav{
-        flex-wrap: wrap;
-      }
-
-      .stats{
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header class="topbar">
-      <div class="brand">
-        <div class="brand-mark">P</div>
-        <div>Poco Yo a Cor</div>
-      </div>
-
-      <nav class="nav">
-        <span class="active">Dashboard</span>
-        <span>Generador</span>
-        <span>Ranking</span>
-        <span>Usuarios</span>
-      </nav>
-
-      <div class="user-pill">Admin • 24h</div>
-    </header>
-
-    <section class="hero">
-      <div class="card main-panel">
-        <div class="title">Panel de monetización</div>
-        <h1 class="h1">Genera enlaces de anuncio y gana por cada paso</h1>
-        <div class="subtitle">
-          Crea campañas, ajusta
+    .stat {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 16px;
+      box-shadow: 0 16px 20px rgba(0,0,0
