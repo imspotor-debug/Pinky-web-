@@ -1,139 +1,422 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAPO PROGRAMADOR OFC - Canales Oficiales</title>
-    <!-- Iconos de FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poco Yo a Cor</title>
+  <style>
+    :root{
+      --bg: #0b0b0d;
+      --panel: #141417;
+      --panel-2: #1b1b20;
+      --card: #1d1d22;
+      --line: #2a2a32;
+      --red: #f32d2d;
+      --red-2: #c31717;
+      --text: #f5f5f5;
+      --muted: #b8b8c0;
+      --green: #2ddf7c;
+      --yellow: #ffcb44;
+    }
 
-        body {
-            background-color: #0c0814;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 25px 15px;
-        }
+    * { box-sizing: border-box; }
 
-        .container {
-            width: 100%;
-            max-width: 380px;
-            background: #160e26;
-            padding: 30px 20px;
-            border-radius: 20px;
-            border: 2px solid #a855f7;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-            text-align: center;
-        }
+    body{
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #09090b 0%, #111216 100%);
+      color: var(--text);
+    }
 
-        .logo-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
+    .container{
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 25px 20px 60px;
+    }
 
-        .logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            border: 2px solid #a855f7;
-            box-shadow: 0 0 15px #a855f7;
-        }
+    .topbar{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
 
-        h1 {
-            color: #c084fc;
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
-        }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
 
-        p.description {
-            font-size: 13px;
-            color: #d8b4fe;
-            margin-bottom: 25px;
-        }
+    .brand-mark{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 0 18px rgba(243,45,45,0.45);
+    }
 
-        .btn-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+    .nav{
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-        .link-button {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 18px;
-            border-radius: 25px;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-            background-color: transparent;
-            border: 2px solid #a855f7;
-            box-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-        }
+    .nav span{
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid transparent;
+    }
 
-        .link-button i {
-            font-size: 20px;
-            color: #25d366; /* Mantiene el icono verde de WhatsApp */
-            width: 24px;
-            text-align: center;
-        }
+    .nav .active{
+      color: var(--text);
+      border-color: rgba(243,45,45,0.5);
+      background: rgba(243,45,45,0.08);
+    }
 
-        .link-button span.text {
-            flex-grow: 1;
-            text-align: left;
-            margin-left: 10px;
-        }
+    .user-pill{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
 
-        .link-button:hover {
-            transform: translateY(-2px);
-            background-color: rgba(168, 85, 247, 0.2);
-            box-shadow: 0 0 15px #a855f7;
-        }
-    </style>
+    .hero{
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    .main-panel{
+      padding: 24px;
+    }
+
+    .title{
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .h1{
+      font-size: clamp(28px, 4vw, 46px);
+      margin: 0 0 8px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .subtitle{
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stats{
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat{
+      padding: 18px 14px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .stat-label{
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .stat-value{
+      margin-top: 10px;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .stat-value.red{ color: var(--red); }
+    .stat-value.green{ color: var(--green); }
+    .stat-value.yellow{ color: var(--yellow); }
+
+    .side-panel{
+      padding: 20px;
+      background: linear-gradient(180deg, rgba(243,45,45,0.08), rgba(20,20,23,0.15));
+    }
+
+    .mini-card{
+      padding: 18px 16px;
+      border: 1px solid rgba(243,45,45,0.28);
+      border-radius: 14px;
+      background: rgba(243,45,45,0.05);
+      margin-bottom: 14px;
+    }
+
+    .mini-head{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    .big-number{
+      font-size: 32px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .content{
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+    }
+
+    .form-card{
+      padding: 22px;
+    }
+
+    .form-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .field{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label{
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select{
+      width: 100%;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 13px 12px;
+      border-radius: 12px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .field input:focus,
+    .field select:focus{
+      border-color: rgba(243,45,45,0.8);
+      box-shadow: 0 0 0 3px rgba(243,45,45,0.12);
+    }
+
+    .field.full{
+      grid-column: 1 / -1;
+    }
+
+    .actions{
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn{
+      border: none;
+      border-radius: 12px;
+      padding: 13px 18px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn.primary{
+      background: linear-gradient(135deg, var(--red), var(--red-2));
+      color: #fff;
+      box-shadow: 0 10px 26px rgba(243,45,45,0.35);
+    }
+
+    .btn.secondary{
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+    }
+
+    .generated{
+      margin-top: 22px;
+      padding: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .generated-label{
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      margin-bottom: 10px;
+    }
+
+    .link-box{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0,0,0,0.28);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #fff;
+      word-break: break-all;
+    }
+
+    .copy{
+      flex-shrink: 0;
+      background: rgba(243,45,45,0.12);
+      color: var(--red);
+      border: 1px solid rgba(243,45,45,0.4);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .ranking{
+      padding: 22px;
+    }
+
+    .header-rank{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .ranking-table{
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+    }
+
+    .ranking-table th,
+    .ranking-table td{
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .ranking-table th{
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .rank-pill{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(243,45,45,0.12);
+      border: 1px solid rgba(243,45,45,0.4);
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    .positive{
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .negative{
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    @media (max-width: 920px){
+      .hero, .content{
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .topbar{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav{
+        flex-wrap: wrap;
+      }
+
+      .stats{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div>Poco Yo a Cor</div>
+      </div>
 
-    <div class="container">
-        <div class="logo-container">
-            <img src="logo.jpg" alt="Logo CAPO PROGRAMADOR OFC" class="logo">
-        </div>
-        
-        <h1>CAPO PROGRAMADOR OFC</h1>
-        <p class="description">Bienvenido a mi comunidad. Únete a mis canales oficiales aquí abajo.</p>
-        
-        <div class="btn-list">
-            <!-- Canal de WhatsApp 1 -->
-            <a href="https://whatsapp.com/channel/0029VbDQaXj7Noa5g9ExjO1N" class="link-button" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                <span class="text">Canal de WhatsApp 1</span>
-                <span>🟢</span>
-            </a>
+      <nav class="nav">
+        <span class="active">Dashboard</span>
+        <span>Generador</span>
+        <span>Ranking</span>
+        <span>Usuarios</span>
+      </nav>
 
-            <!-- Canal de WhatsApp 2 -->
-            <a href="https://whatsapp.com/channel/0029VbDjbTrChq6R2goQjd2C" class="link-button" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                <span class="text">Canal de WhatsApp 2</span>
-                <span>🟢</span>
-            </a>
-        </div>
-    </div>
+      <div class="user-pill">Admin • 24h</div>
+    </header>
 
-</body>
-</html>
+    <section class="hero">
+      <div class="card main-panel">
+        <div class="title">Panel de monetización</div>
+        <h1 class="h1">Genera enlaces de anuncio y gana por cada paso</h1>
+        <div class="subtitle">
+          Crea campañas, ajusta
