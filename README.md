@@ -1,2 +1,2 @@
-# Pinky-web-
+# pocoyo-web-
 Mi página 
