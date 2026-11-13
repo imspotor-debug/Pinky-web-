@@ -1,641 +1,425 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>POCOYÓXIT</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POCOYO7X — Panel</title>
   <style>
-    :root{
-      --bg: #07090d;
-      --bg-2: #10151d;
-      --panel: #121922;
-      --panel-2: #171f2a;
-      --panel-3: #1d2734;
-      --line: #233041;
-      --line-soft: rgba(255,255,255,0.06);
-      --text: #edf3ff;
-      --muted: #9aa8bb;
-      --red: #ff3b3b;
-      --red-2: #d72828;
-      --green: #27d17d;
-      --green-soft: rgba(39, 209, 125, 0.12);
-      --blue: #3b82f6;
-      --blue-soft: rgba(59,130,246,0.12);
-      --yellow: #f7c948;
-      --shadow: rgba(0,0,0,0.35);
+    :root {
+      --bg: #090909;
+      --panel: #121212;
+      --panel-2: #191919;
+      --border: #282828;
+      --text: #f3f3f3;
+      --muted: #929292;
+      --red: #ef3434;
+      --red-dark: #9e2020;
+      --green: #41c77a;
+      --yellow: #f1bd4b;
     }
 
-    *{ box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-    html, body{
+    body {
       margin: 0;
-      min-height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      background: var(--bg);
       color: var(--text);
+      font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
     }
 
-    body{
-      min-height: 100vh;
-    }
+    button, select, input { font: inherit; }
 
-    a{
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, select{
-      font: inherit;
-    }
-
-    .hidden{
-      display: none !important;
-    }
-
-    .login-screen{
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .login-card{
-      width: min(440px, 92vw);
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
-      padding: 28px 24px;
-    }
-
-    .brand{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .brand-mark{
-      width: 44px;
-      height: 44px;
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
       display: grid;
       place-items: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      color: white;
-      font-weight: 900;
-      box-shadow: 0 0 18px rgba(255,59,59,0.45);
+      background:
+        radial-gradient(ellipse at center, #281010 0, #0b0b0b 55%, #070707 100%);
+      transition: opacity .4s ease, visibility .4s ease;
     }
 
-    .brand-name{
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-    }
+    .loader.hidden { opacity: 0; visibility: hidden; }
 
-    .login-title{
-      text-align: center;
-      font-size: 12px;
-      letter-spacing: 1.2px;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
+    .welcome { text-align: center; }
+    .welcome h1 { margin: 0; font-size: clamp(2rem, 7vw, 4rem); }
+    .welcome h1 span { color: var(--red); }
+    .welcome p { color: var(--muted); }
 
-    .field{
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .field label{
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .field input{
-      width: 100%;
-      background: var(--panel-2);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 13px 14px;
-      color: var(--text);
-      outline: none;
-      font-size: 15px;
-    }
-
-    .field input:focus{
-      border-color: rgba(59,130,246,0.8);
-      box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
-    }
-
-    .login-actions{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .btn{
-      border: none;
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.18s ease, opacity 0.18s ease;
-    }
-
-    .btn:hover{
-      transform: translateY(-1px);
-    }
-
-    .btn.primary{
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      color: white;
-      box-shadow: 0 12px 24px rgba(255,59,59,0.25);
-    }
-
-    .btn.secondary{
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .demo-info{
-      margin-top: 20px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    .app{
-      width: 100%;
-      min-height: 100vh;
-      background: #08080a;
-    }
-
-    .app-shell{
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      min-height: 100vh;
-    }
-
-    .sidebar{
-      background: linear-gradient(180deg, rgba(17,21,29,0.96), rgba(12,16,22,0.98));
-      border-right: 1px solid var(--line);
-      padding: 22px 16px 18px;
-      position: relative;
-    }
-
-    .sidebar .brand{
-      justify-content: flex-start;
-      padding: 8px 6px 18px;
-      margin-bottom: 16px;
-    }
-
-    .nav{
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .nav-item{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 12px;
-      border-radius: 12px;
-      cursor: pointer;
-      color: var(--muted);
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-    }
-
-    .nav-item:hover{
-      background: rgba(255,255,255,0.02);
-      border-color: var(--line-soft);
-    }
-
-    .nav-item.active{
-      background: rgba(255,59,59,0.08);
-      border-color: rgba(255,59,59,0.35);
-      color: var(--text);
-    }
-
-    .dot{
-      width: 8px;
-      height: 8px;
+    .spinner {
+      width: 38px;
+      height: 38px;
+      margin: 24px auto 0;
+      border: 3px solid #393939;
+      border-top-color: var(--red);
       border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 12px rgba(255,59,59,0.75);
+      animation: spin .8s linear infinite;
     }
 
-    .sidebar-card{
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 18px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px 12px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .layout { min-height: 100vh; display: flex; }
+
+    aside {
+      width: 235px;
+      padding: 24px 16px;
+      background: #101010;
+      border-right: 1px solid var(--border);
     }
 
-    .status{
-      color: var(--green);
-      font-weight: 700;
-    }
+    .brand { margin: 0 0 32px 8px; font-size: 19px; }
+    .brand span { color: var(--red); }
 
-    .main{
-      padding: 26px;
-    }
-
-    .topbar{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-bottom: 18px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .title{
-      margin: 0;
-      font-size: 34px;
-      font-weight: 900;
-    }
-
-    .topbar-right{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .pill{
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 10px 12px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .stats{
-      display: grid;
-      grid-template-columns: repeat(4, minmax(170px, 1fr));
-      gap: 18px;
-      margin-bottom: 26px;
-    }
-
-    .stat-card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 18px 16px;
-      box-shadow: 0 18px 30px rgba(0,0,0,0.18);
-    }
-
-    .stat-label{
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-    }
-
-    .stat-value{
-      margin-top: 12px;
-      font-size: 34px;
-      font-weight: 900;
-      line-height: 1.1;
-    }
-
-    .red{ color: var(--red); }
-    .green{ color: var(--green); }
-    .blue{ color: var(--blue); }
-    .yellow{ color: var(--yellow); }
-
-    .dashboard-grid{
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 22px;
-    }
-
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 16px 30px rgba(0,0,0,0.18);
-    }
-
-    .panel-header{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .panel-title{
-      margin: 0;
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .tag{
-      background: rgba(255,59,59,0.08);
-      border: 1px solid rgba(255,59,59,0.35);
-      color: var(--red);
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .form-grid{
-      display: grid;
-      grid-template-columns: repeat(2, minmax(180px, 1fr));
-      gap: 16px;
-    }
-
-    .field-panel{
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field-panel.full{
-      grid-column: 1 / -1;
-    }
-
-    .field-panel label{
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .field-panel input,
-    .field-panel select{
+    .nav-button {
       width: 100%;
-      background: var(--panel-2);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      color: var(--text);
-      padding: 13px 12px;
-      outline: none;
-      font-size: 15px;
-    }
-
-    .field-panel input:focus,
-    .field-panel select:focus{
-      border-color: rgba(59,130,246,0.8);
-      box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
-    }
-
-    .actions{
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .generated-box{
-      margin-top: 18px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 16px;
-    }
-
-    .small-label{
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .link-box{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      background: rgba(0,0,0,0.24);
-      border: 1px solid var(--line);
-      border-radius: 10px;
       padding: 12px 14px;
-      word-break: break-all;
-    }
-
-    .copy-btn{
-      flex-shrink: 0;
-      background: rgba(255,59,59,0.12);
-      border: 1px solid rgba(255,59,59,0.38);
-      color: var(--red);
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-weight: 800;
+      margin: 4px 0;
+      color: var(--muted);
+      text-align: left;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 9px;
       cursor: pointer;
     }
 
-    .ranking-table{
-      width: 100%;
-      border-collapse: collapse;
+    .nav-button.active, .nav-button:hover {
+      color: var(--text);
+      background: #241313;
+      border-color: #4a2020;
     }
 
-    .ranking-table th,
-    .ranking-table td{
-      text-align: left;
-      padding: 12px 10px;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-    }
-
-    .ranking-table th{
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .rank-pill{
-      width: 30px;
-      height: 30px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(255,59,59,0.08);
-      border: 1px solid rgba(255,59,59,0.35);
-      color: var(--red);
-      font-weight: 800;
-    }
-
-    .up{ color: var(--green); font-weight: 700; }
-    .down{ color: var(--red); font-weight: 700; }
-
-    .list-table{
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 8px;
-    }
-
-    .list-table th,
-    .list-table td{
-      text-align: left;
-      padding: 12px 10px;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-    }
-
-    .list-table th{
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .chip{
-      padding: 6px 8px;
-      border-radius: 8px;
-      font-size: 11px;
-      font-weight: 800;
-      display: inline-block;
-    }
-
-    .active-chip{
-      background: var(--green-soft);
-      color: var(--green);
-      border: 1px solid rgba(39,209,125,0.28);
-    }
-
-    .pending-chip{
-      background: rgba(247,201,73,0.12);
-      color: var(--yellow);
-      border: 1px solid rgba(247,201,73,0.25);
-    }
-
-    .summary-box{
-      background: linear-gradient(180deg, rgba(59,130,246,0.08), rgba(255,255,255,0.01));
-      border: 1px solid rgba(59,130,246,0.28);
-      border-radius: 14px;
-      padding: 16px;
-      margin-top: 18px;
-    }
-
-    .summary-top{
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      color: var(--muted);
+    main { flex: 1; min-width: 0; padding: 30px clamp(16px, 4vw, 48px); }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .topbar h1 { margin: 0; font-size: 27px; }
+    .badge {
+      padding: 6px 10px;
+      color: #ffb1b1;
+      background: #281414;
+      border: 1px solid #542323;
+      border-radius: 99px;
       font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 10px;
     }
 
-    .summary-value{
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--blue);
+    .subheading { margin: 6px 0 24px; color: var(--muted); }
+
+    .card {
+      margin: 18px 0;
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 13px;
     }
 
-    .summary-grid{
+    .card h2 { margin: 0 0 6px; font-size: 18px; }
+    .hint { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+
+    .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      grid-template-columns: repeat(4, minmax(140px, 1fr)) auto;
       gap: 12px;
-      margin-top: 12px;
+      align-items: end;
     }
 
-    .mini-block{
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 12px;
+    label { display: block; color: #c9c9c9; font-size: 13px; }
+    input, select {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px 11px;
+      color: var(--text);
+      background: #0c0c0c;
+      border: 1px solid #353535;
+      border-radius: 8px;
     }
 
-    .mini-block .label{
-      color: var(--muted);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
+    .primary, .secondary, .danger {
+      padding: 9px 12px;
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
-    .mini-block .amount{
-      margin-top: 8px;
-      font-size: 22px;
-      font-weight: 800;
+    .primary { background: var(--red-dark); }
+    .primary:hover { background: #c12a2a; }
+    .secondary { background: #303030; }
+    .danger { background: #491b1b; color: #ffb2b2; }
+    .small { padding: 6px 9px; font-size: 12px; }
+
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 760px; }
+    th, td {
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--muted); font-size: 12px; font-weight: 600; }
+    td { font-size: 13px; }
+    code { color: #ff8585; }
+    .status { color: var(--green); }
+    .status.paused { color: var(--yellow); }
+    .actions { display: flex; gap: 7px; }
+    .empty { padding: 26px; color: var(--muted); text-align: center; }
+
+    pre {
+      overflow-x: auto;
+      padding: 16px;
+      color: #ffd2d2;
+      background: #090909;
+      border: 1px solid var(--border);
+      border-radius: 9px;
     }
 
-    @media (max-width: 980px){
-      .app-shell{
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar{
-        border-right: none;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .dashboard-grid{
-        grid-template-columns: 1fr;
-      }
-
-      .stats{
-        grid-template-columns: repeat(2, minmax(130px, 1fr));
-      }
+    .notice {
+      padding: 12px 14px;
+      color: #f5d992;
+      background: #211d12;
+      border: 1px solid #4d421f;
+      border-radius: 9px;
     }
 
-    @media (max-width: 620px){
-      .main{
-        padding: 18px;
-      }
+    .view { display: none; }
+    .view.active { display: block; }
 
-      .stats{
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 900px) {
+      .form-grid { grid-template-columns: repeat(2, minmax(130px, 1fr)); }
+    }
 
-      .form-grid{
-        grid-template-columns: 1fr;
-      }
-
-      .topbar{
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .link-box{
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    @media (max-width: 620px) {
+      .layout { display: block; }
+      aside { width: 100%; padding: 14px; border-right: 0; border-bottom: 1px solid var(--border); }
+      .brand { margin: 0 0 10px 4px; }
+      .nav-button { width: auto; margin-right: 5px; }
+      main { padding-top: 22px; }
+      .form-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+  <div class="loader" id="loader">
+    <div class="welcome">
+      <h1>Bienvenido a <span>POCOYO7X</span></h1>
+      <p>Cargando el panel de administración...</p>
+      <div class="spinner" aria-label="Cargando"></div>
+    </div>
+  </div>
 
-  <div class="login-screen" id="loginScreen">
-    <div class="login-card">
-      <div class="brand">
-        <div class="brand-mark">P</div>
-        <div class="brand-name">POCOYÓXIT</div>
+  <div class="layout">
+    <aside>
+      <h2 class="brand">POCOYO<span>7X</span></h2>
+      <nav aria-label="Navegación">
+        <button class="nav-button active" data-view="keys">🔑 &nbsp; Keys</button>
+        <button class="nav-button" data-view="api">⚙️ &nbsp; API e integración</button>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="topbar">
+        <h1 id="page-title">Administrar keys</h1>
+        <span class="badge">PANEL DEMO</span>
       </div>
+      <p class="subheading">Crea y administra las keys de tu aplicación.</p>
 
-      <div class="login-title">Acceso al panel</div>
+      <section class="view active" id="view-keys">
+        <div class="card">
+          <h2>Generar una key</h2>
+          <p class="hint">Elige el formato, la duración y cuántas personas podrán usarla.</p>
 
-      <div class="field">
-        <
+          <form id="key-form" class="form-grid">
+            <label>Formato
+              <select id="prefix">
+                <option value="ACUSADO">ACUSADO-XXXX</option>
+                <option value="POCOYO7X">POCOYO7X-XXXX</option>
+              </select>
+            </label>
+
+            <label>Duración
+              <select id="duration">
+                <option value="1">1 día</option>
+                <option value="3">3 días</option>
+                <option value="7">7 días</option>
+                <option value="30">30 días</option>
+              </select>
+            </label>
+
+            <label>Máximo de personas
+              <input id="max-users" type="number" min="1" value="1" required>
+            </label>
+
+            <div></div>
+            <button class="primary" type="submit">＋ Crear key</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Keys creadas</h2>
+          <p class="hint">Puedes pausar, reactivar o eliminar una key.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Estado</th>
+                  <th>Expira</th>
+                  <th>Personas</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="key-list"></tbody>
+            </table>
+            <div class="empty" id="empty-state">Todavía no hay keys. Crea una con el formulario.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-api">
+        <div class="card">
+          <h2>Validación desde tu APK</h2>
+          <p class="hint">
+            La APK debe enviar la key a tu servidor y recibir si es válida.
+            Esta dirección es solo un ejemplo; todavía no existe un backend conectado.
+          </p>
+
+          <div class="notice">
+            No pongas una clave secreta de administración dentro de la APK.
+            La validación y la administración real deben hacerse en un servidor.
+          </div>
+
+          <h3>Ejemplo de solicitud</h3>
+          <pre><code>POST /api/v1/keys/validate
+Content-Type: application/json
+
+{
+  "key": "POCOYO7X-AB12"
+}</code></pre>
+
+          <h3>Ejemplo de llamada desde JavaScript</h3>
+          <pre><code>const respuesta = await fetch("https://TU-DOMINIO/api/v1/keys/validate", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ key: keyIngresada })
+});
+
+const resultado = await respuesta.json();
+// Tu servidor debería responder, por ejemplo:
+// { "valid": true, "expiresAt": "..." }</code></pre>
+
+          <p class="hint">
+            Para usarlo de verdad falta crear la API, una base de datos y un inicio
+            de sesión seguro para el panel.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "pocoyo7x-demo-keys";
+    let keys = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+
+    const list = document.getElementById("key-list");
+    const emptyState = document.getElementById("empty-state");
+
+    setTimeout(() => {
+      document.getElementById("loader").classList.add("hidden");
+    }, 1300);
+
+    document.querySelectorAll(".nav-button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".nav-button").forEach(item =>
+          item.classList.toggle("active", item === button)
+        );
+
+        document.querySelectorAll(".view").forEach(view =>
+          view.classList.toggle("active", view.id === `view-${button.dataset.view}`)
+        );
+
+        document.getElementById("page-title").textContent =
+          button.dataset.view === "keys" ? "Administrar keys" : "API e integración";
+      });
+    });
+
+    function saveKeys() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(keys));
+      renderKeys();
+    }
+
+    function renderKeys() {
+      list.innerHTML = "";
+      emptyState.style.display = keys.length ? "none" : "block";
+
+      keys.forEach(item => {
+        const row = document.createElement("tr");
+        const statusClass = item.paused ? "status paused" : "status";
+        const statusText = item.paused ? "Pausada" : "Activa";
+        const actionText = item.paused ? "Reactivar" : "Pausar";
+
+        row.innerHTML = `
+          <td><code>${item.key}</code></td>
+          <td><span class="${statusClass}">${statusText}</span></td>
+          <td>${new Date(item.expiresAt).toLocaleDateString("es")}</td>
+          <td>0 / ${item.maxUsers}</td>
+          <td>
+            <div class="actions">
+              <button class="secondary small" data-action="toggle" data-id="${item.id}">
+                ${actionText}
+              </button>
+              <button class="danger small" data-action="delete" data-id="${item.id}">
+                Eliminar
+              </button>
+            </div>
+          </td>`;
+        list.appendChild(row);
+      });
+    }
+
+    function makeSuffix() {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      const bytes = crypto.getRandomValues(new Uint8Array(4));
+      return Array.from(bytes, value => chars[value % chars.length]).join("");
+    }
+
+    document.getElementById("key-form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const prefix = document.getElementById("prefix").value;
+      const days = Number(document.getElementById("duration").value);
+      const maxUsers = Number(document.getElementById("max-users").value);
+
+      if (!Number.isInteger(maxUsers) || maxUsers < 1) {
+        alert("El máximo de personas debe ser al menos 1.");
+        return;
+      }
+
+      keys.unshift({
+        id: crypto.randomUUID(),
+        key: `${prefix}-${makeSuffix()}`,
+        maxUsers,
+        expiresAt: new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString(),
+        paused: false
+      });
+
+      saveKeys();
+    });
+
+    list.addEventListener("click", event => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+
+      const item = keys.find(key => key.id === button.dataset.id);
+      if (!item) return;
+
+      if (button.dataset.action === "toggle") {
+        item.paused = !item.paused;
+      } else if (button.dataset.action === "delete") {
+        if (!confirm(`¿Eliminar la key ${item.key}?`)) return;
+        keys = keys.filter(key => key.id !== item.id);
+      }
+
+      saveKeys();
+    });
+
+    renderKeys();
+  </script>
+</body>
+</html>
