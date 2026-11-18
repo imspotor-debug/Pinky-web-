@@ -136,7 +136,7 @@
             <div id="local-helper" class="hidden mt-3">
                 <label for="avatar-upload" class="inline-flex items-center gap-1.5 text-[11px] text-red-300/90 hover:text-white bg-red-950/60 hover:bg-red-900/70 border border-red-800/60 px-3 py-1 rounded-full cursor-pointer transition-colors">
                     <i class="fa-solid fa-image text-red-400"></i>
-                    <span>Seleccionar IMG-20261116-WA0448.jpg</span>
+                    <span>Seleccionar ®POCOYO7X </span>
                 </label>
             </div>
 
