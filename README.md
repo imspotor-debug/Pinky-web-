@@ -254,7 +254,7 @@
             </button>
 
             <p class="text-[11px] text-zinc-500 text-center">
-                &copy; 2026 PINKY MODZ &bull; Todos los derechos reservados.
+                &copy; 2026 PINKY MODZ &bull;
             </p>
         </footer>
 
