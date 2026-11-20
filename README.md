@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PINKY MODZ | Canales Oficiales & Panel</title>
+    <title>OSVALDO MODZ | Canales Oficiales & Panel</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome 6 para iconos oficiales -->
@@ -81,7 +81,7 @@
                         id="site-logo"
                         src="IMG-20261116-WA0448.jpg" 
                         onerror="activarFallbackAvatar(this)"
-                        alt="Avatar Oficial PINKY MODZ" 
+                        alt="Avatar Oficial OSVALDO " 
                         class="w-full h-full object-cover object-center"
                     >
                     
