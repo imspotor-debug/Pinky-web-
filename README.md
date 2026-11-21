@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+©POCOYO7X 
 <html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSVALDO XITERZ | Canales Oficiales</title>
+    <title>OSVALDO MODZ | Canales Oficiales & Panel</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome 6 para iconos oficiales -->
@@ -81,7 +81,7 @@
                         id="site-logo"
                         src="IMG-20261116-WA0448.jpg" 
                         onerror="activarFallbackAvatar(this)"
-                        alt="Avatar Oficial OSVALDO XITERZ" 
+                        alt="Avatar Oficial OSVALDO " 
                         class="w-full h-full object-cover object-center"
                     >
                     
@@ -142,7 +142,7 @@
 
             <!-- Título y subtítulo -->
             <h1 class="mt-4 font-gamer text-2xl sm:text-3xl font-black tracking-wider bg-gradient-to-r from-white via-red-100 to-red-400 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(220,38,38,0.35)]">
-                OSVALDO XITERZ
+                PINKY MODZ
             </h1>
             <p class="mt-1.5 text-sm text-zinc-400 max-w-xs">
                 Panel VIP, actualizaciones exclusivas y soporte directo en nuestras redes oficiales.
@@ -152,6 +152,31 @@
         <!-- Sección de Enlaces -->
         <section class="space-y-4">
 
+            <!-- 1. BOTÓN PRINCIPAL DESTACADO: PANEL AQUI -->
+            <a href="https://zoralinks.com/r/https-hunter-v54modz-iu2" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="group relative flex items-center justify-between w-full p-4 rounded-2xl bg-gradient-to-r from-red-700 via-red-600 to-rose-700 hover:from-red-600 hover:to-rose-600 text-white font-gamer font-bold tracking-wider shadow-lg animate-pulse-crimson transition-all duration-300 transform hover:-translate-y-1 active:scale-[0.98] overflow-hidden border border-red-400/50">
+                
+                <!-- Brillo deslizante -->
+                <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:animate-shimmer pointer-events-none"></span>
+
+                <div class="flex items-center gap-3.5 relative z-10">
+                    <div class="w-11 h-11 bg-black/35 rounded-xl backdrop-blur-sm flex items-center justify-center border border-red-400/30">
+                        <i class="fa-solid fa-download text-lg text-white group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-base sm:text-lg leading-tight tracking-widest">PANEL AQUI</span>
+                        <span class="block font-sans text-xs font-medium text-red-100/90 tracking-normal">Acceso directo al panel y descarga</span>
+                    </div>
+                </div>
+
+                <!-- Flecha derecha -->
+                <div class="relative z-10 bg-black/30 w-9 h-9 rounded-xl flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </div>
+            </a>
+
             <!-- Separador visual -->
             <div class="flex items-center gap-3 py-1">
                 <div class="h-px flex-1 bg-gradient-to-r from-transparent via-red-900/60 to-red-900/60"></div>
@@ -159,8 +184,27 @@
                 <div class="h-px flex-1 bg-gradient-to-l from-transparent via-red-900/60 to-red-900/60"></div>
             </div>
 
-            <!-- 1. BOTÓN WHATSAPP -->
-            <a href="https://whatsapp.com/channel/0029VbByQTp05MUjFAedTS0G" 
+            <!-- 2. BOTÓN TELEGRAM -->
+            <a href="https://t.me/linkjkrgds13exe" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="group flex items-center justify-between w-full p-3.5 rounded-2xl bg-[#140a0c]/85 hover:bg-[#229ED9]/15 border border-red-950/80 hover:border-[#229ED9] transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.98] shadow-md hover:shadow-[0_0_20px_rgba(34,158,217,0.3)]">
+                
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-[#229ED9] flex items-center justify-center text-white shadow-inner group-hover:scale-105 transition-transform">
+                        <i class="fa-brands fa-telegram text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block font-semibold text-base text-white group-hover:text-[#38bdf8] transition-colors">Canal de Telegram</span>
+                        <span class="block text-xs text-zinc-400">Actualizaciones, archivos y soporte</span>
+                    </div>
+                </div>
+
+                <i class="fa-solid fa-chevron-right text-sm text-zinc-500 group-hover:text-[#229ED9] group-hover:translate-x-1 transition-all pr-1"></i>
+            </a>
+
+            <!-- 3. BOTÓN WHATSAPP -->
+            <a href="https://whatsapp.com/channel/0029Vb7e1V2CMY0N0wdR9X1c" 
                target="_blank" 
                rel="noopener noreferrer"
                class="group flex items-center justify-between w-full p-3.5 rounded-2xl bg-[#140a0c]/85 hover:bg-[#25D366]/15 border border-red-950/80 hover:border-[#25D366] transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.98] shadow-md hover:shadow-[0_0_20px_rgba(37,211,102,0.3)]">
@@ -178,8 +222,8 @@
                 <i class="fa-solid fa-chevron-right text-sm text-zinc-500 group-hover:text-[#25D366] group-hover:translate-x-1 transition-all pr-1"></i>
             </a>
 
-            <!-- 2. BOTÓN DISCORD -->
-            <a href="https://discord.gg/6QcTWYEkk" 
+            <!-- 4. BOTÓN DISCORD -->
+            <a href="https://discord.gg/tSV9fRBdW" 
                target="_blank" 
                rel="noopener noreferrer"
                class="group flex items-center justify-between w-full p-3.5 rounded-2xl bg-[#140a0c]/85 hover:bg-[#5865F2]/15 border border-red-950/80 hover:border-[#5865F2] transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.98] shadow-md hover:shadow-[0_0_20px_rgba(88,101,242,0.35)]">
@@ -197,25 +241,6 @@
                 <i class="fa-solid fa-chevron-right text-sm text-zinc-500 group-hover:text-[#5865F2] group-hover:translate-x-1 transition-all pr-1"></i>
             </a>
 
-            <!-- 3. BOTÓN YOUTUBE -->
-            <a href="https://youtube.com/@osvaldo-ofcx?si=oFW_lDgMJyahSBLC" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="group flex items-center justify-between w-full p-3.5 rounded-2xl bg-[#140a0c]/85 hover:bg-[#FF0000]/15 border border-red-950/80 hover:border-[#FF0000] transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.98] shadow-md hover:shadow-[0_0_20px_rgba(255,0,0,0.3)]">
-                
-                <div class="flex items-center gap-3.5">
-                    <div class="w-11 h-11 rounded-xl bg-[#FF0000] flex items-center justify-center text-white shadow-inner group-hover:scale-105 transition-transform">
-                        <i class="fa-brands fa-youtube text-2xl"></i>
-                    </div>
-                    <div class="text-left">
-                        <span class="block font-semibold text-base text-white group-hover:text-[#f87171] transition-colors">Canal de YouTube</span>
-                        <span class="block text-xs text-zinc-400">Videos, shorts y contenido exclusivo</span>
-                    </div>
-                </div>
-
-                <i class="fa-solid fa-chevron-right text-sm text-zinc-500 group-hover:text-[#FF0000] group-hover:translate-x-1 transition-all pr-1"></i>
-            </a>
-
         </section>
 
         <!-- Pie de tarjeta con botón para copiar el enlace -->
@@ -229,7 +254,7 @@
             </button>
 
             <p class="text-[11px] text-zinc-500 text-center">
-                &copy; 2026 OSVALDO XITERZ &bull;
+                &copy; 2026 PINKY MODZ &bull;
             </p>
         </footer>
 
